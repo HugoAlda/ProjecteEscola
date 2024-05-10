@@ -1,0 +1,51 @@
+/* Estilos para el contenedor del boton de inicio de sesion */
+body {
+    background-color: #202027;
+}
+
+/* Estilo para el contenedor del botón de inicio de sesión */
+.contenedor-btn-login {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px; /* Aumentamos el padding para agregar espacio alrededor del título y el botón */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centramos horizontalmente */
+    border: 2px solid black; /* Color y grosor del borde */
+    background-color: grey; /* Color de fondo del rectángulo */
+    border-radius: 5px; /* Borde redondeado */
+    width: 300px; /* Ajustamos el ancho del rectángulo */
+    margin: 0 auto; /* Centramos horizontalmente */
+}
+
+/* Estilo para el título del botón de inicio de sesión */
+.contenedor-btn-login h2 {
+    margin: 0 0 10px 0; /* Añadimos un margen inferior al título */
+    font-size: 18px; /* Tamaño del texto */
+    color: white;
+}
+
+/* Estilo para el botón de inicio de sesión */
+.contenedor-btn-login a {
+    display: inline-block;
+    padding: 10px 20px;
+    /* background-color: #007bff; */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo para el botón de inicio de sesión al pasar el mouse */
+.contenedor-btn-login a:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Estilo para el contenedor de la imagen del logo */
+.contenedor-img-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
