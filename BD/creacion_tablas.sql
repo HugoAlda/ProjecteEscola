@@ -1,6 +1,10 @@
+-- CREACIÓ I UTILITZACIÓ DE LA BASE DE DADES
+
 CREATE DATABASE bd_escola;
 
 USE bd_escola;
+
+-- CREACIÓ TAULES
 
 CREATE TABLE tbl_alumnes(
   Matricula_alumne CHAR(9) NOT NULL PRIMARY KEY,
@@ -29,48 +33,28 @@ CREATE TABLE tbl_professors(
 CREATE TABLE tbl_curs(
   Nom_curs varchar(50) NOT NULL PRIMARY KEY,
   Desc_curs varchar(200) NOT NULL,
-  Horari_curs ENUM('Mati', 'Tarda') NOT NULL,
+  Horari_curs ENUM('Matí', 'Tarda') NOT NULL,
   Num_alumnes smallint NOT NULL,
-  Data_inici DATE NOT NULL,
-  Data_final DATE NOT NULL,
+  Data_inici DATE NULL,
+  Data_final DATE NULL,
   -- FK DNI_Tutor_curs
   FK_DNI_Tutor_curs char(9) NOT NULL
 );
 
 CREATE TABLE tbl_moduls(
-  Nom_modul VARCHAR(50) NOT NULL PRIMARY KEY,
+  Nom_modul VARCHAR(100) NOT NULL PRIMARY KEY,
   Desc_modul VARCHAR(200) NOT NULL,
-  Hores_modul SMALLINT NOT NULL,
+  Hores_modul SMALLINT NULL,
   -- FK DNI_professor
   FK_DNI_professor CHAR(9) NOT NULL,
   -- FK Curs
-  FK_Curs VARCHAR(30) NOT NULL
+  FK_Nom_Curs VARCHAR(30) NOT NULL
 );
 
--- Alter tables
+-- ALTER TABLES
 
-ALTER TABLE tbl_curs
-ADD CONSTRAINT fk_tbl_Curs_Alumnes
-FOREIGN KEY (FK_DNI_Tutor_curs) REFERENCES tbl_alumnes(Matricula_alumne);
+ALTER TABLE tbl_curs ADD CONSTRAINT fk_tbl_Curs_Professors FOREIGN KEY (FK_DNI_Tutor_curs) REFERENCES tbl_professors(DNI_professor);
 
-ALTER TABLE tbl_moduls
-ADD CONSTRAINT fk_tbl_Moduls_Professors
-FOREIGN KEY (FK_DNI_professor) REFERENCES tbl_professors(DNI_professor);
+ALTER TABLE tbl_moduls ADD CONSTRAINT fk_tbl_Moduls_Professors FOREIGN KEY (FK_DNI_professor) REFERENCES tbl_professors(DNI_professor);
 
-ALTER TABLE tbl_moduls
-ADD CONSTRAINT fk_tbl_Moduls_Curs
-FOREIGN KEY (FK_Curs) REFERENCES tbl_curs(Nom_curs);
-
--- chat
-
-ALTER TABLE tbl_curs
-ADD CONSTRAINT fk_tbl_Curs_Alumnes
-FOREIGN KEY (FK_DNI_Tutor_curs) REFERENCES tbl_professors(DNI_professor);
-
-ALTER TABLE tbl_moduls
-ADD CONSTRAINT fk_tbl_Moduls_Professors
-FOREIGN KEY (FK_DNI_professor) REFERENCES tbl_professors(DNI_professor);
-
-ALTER TABLE tbl_moduls
-ADD CONSTRAINT fk_tbl_Moduls_Curs
-FOREIGN KEY (FK_Curs) REFERENCES tbl_curs(Nom_curs);
+ALTER TABLE tbl_moduls ADD CONSTRAINT fk_tbl_Moduls_Curs FOREIGN KEY (FK_Nom_Curs) REFERENCES tbl_curs(Nom_curs);
