@@ -14,7 +14,7 @@
             $_SESSION['contra']=$passBD;
             header('Location: ../crud.html');
         } else {
-        header('Location: ./formLogin.html?error=1');
+            header('Location: ./formLogin.html?error=1');
         }
     }
 
