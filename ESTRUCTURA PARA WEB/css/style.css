@@ -1,27 +1,28 @@
-/* Estilos para el contenedor del boton de inicio de sesion */
+/* Estilos generales */
 body {
+    font-family: Arial, sans-serif;
     background-color: rgb(35, 33, 40);
 }
 
-/* Estilo para el contenedor del botón de inicio de sesión */
+/* Estilo para el contenedor del boton de inicio de sesion */
 .contenedor-btn-login {
     text-align: center;
     margin-top: 50px;
-    padding: 20px; /* Aumentamos el espacio alrededor del título y el botón */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black; /* Color y grosor del borde */
-    background-color: grey; /* Color de fondo */
-    border-radius: 5px; /* Borde redondeado */ 
-    width: 300px; /* Ajustamos el ancho del rectángulo */
-    margin: 0 auto; /* Centramos horizontalmente */
+    border: 2px solid black;
+    background-color: grey;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
 }
 
 /* Estilo para el título del botón de inicio de sesión */
 .contenedor-btn-login h2 {
-    margin: 0 0 10px 0; /* Añadimos un margen inferior al título */
-    font-size: 18px; /* Tamaño del texto */
+    margin: 0 0 10px 0;
+    font-size: 14px;
     color: white;
 }
 
@@ -29,9 +30,9 @@ body {
 .contenedor-btn-login a {
     display: inline-block;
     padding: 10px 20px;
-    /* background-color: #007bff; */
     color: #ffffff;
     text-decoration: none;
+    font-size: 14px;
     border-radius: 5px;
     border: 2px solid white;
     transition: background-color 0.3s, color 0.3s;
@@ -48,4 +49,125 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Estilos CRUD */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid #f2f2f2;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    border: 1px solid #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+th {
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+}
+
+/* Estilos para los botones */
+.create-button {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.button_e {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #008CBA;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.button_e:hover {
+    background-color: #0073e6;
+}
+
+.button_b {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #f44336;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.button_b:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilos para el formulario de inicio de sesión */
+form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+form label {
+    color: white;
+    font-size: 14px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    max-width: 300px; /* Establecemos un ancho máximo */
+    padding: 8px;
+    margin: 5px auto 20px; /* Ajustamos el margen para centrarlos */
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 12px;
+}
+
+form button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
 }

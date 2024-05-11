@@ -12,10 +12,8 @@
             session_start();
             $_SESSION['usuario']=$userBD;
             $_SESSION['contra']=$passBD;
-            header('Location: ../crud.html');
+            header('Location: ../crud.php');
         } else {
             header('Location: ./formLogin.html?error=1');
         }
     }
-
-    ?>
