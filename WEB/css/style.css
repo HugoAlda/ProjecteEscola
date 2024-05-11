@@ -3,7 +3,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: rgb(35, 33, 40);
 }
-
+.texto-invisible {
+    color: white;
+}
 /* Estilo para el contenedor del boton de inicio de sesion */
 .contenedor-btn-login {
     text-align: center;
@@ -53,10 +55,22 @@ body {
 
 /* Estilos CRUD */
 .container {
-    width: 100vw; /* Cambiamos el ancho a 90% del viewport */
+    width: 100vw; /* Cambiamos el ancho a 100% del viewport */
+    max-width: 95vw;
+    max-height: 70vh; /* Establecemos una altura máxima del 90% del viewport */
     background-color: #fff;
-    border-radius: 8px;
+    overflow-y: auto; /* Agregamos un desplazamiento vertical */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor {   
+    width: 95vw;
+    background-color: #fff;
+    overflow-y: auto; /* Desplazamiento vertical */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: center; /* Centramos horizontalmente */
+    align-items: center; /* Centramos verticalmente */
+    margin: 0 auto; /* Centramos horizontalmente en el contenedor padre */
 }
 
 h2 {
@@ -69,6 +83,7 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     border: 2px solid #f2f2f2;
+    overflow-y: auto; /* Agregamos un desplazamiento vertical */
 }
 
 th, td {

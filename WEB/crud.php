@@ -23,22 +23,24 @@
     <title>CRUD tbl_alumnes</title>
 </head>
 <body>
-    
-    <div class="container">
+    <br><br>
+    <div class="contenedor">
         <br>
         <h2 style="text-align: center;">Tabla CRUD tbl_alumnes</h2>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container-fluid">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-        <br>
         <div class="create-button">
-            <a class="button" href="insertar.php">Crear</a>
+            <nav>
+                <div class="container-fluid">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                        <p class="texto-invisible">1</p>
+                        <a class="button" href="insertar.php">Crear</a>
+                    </form>
+                </div>
+            </nav>
         </div>
+    </div>
+    <div class="container">
         <table>
             <thead>
                 <tr>
@@ -56,24 +58,24 @@
             <tbody>
                 <?php
                     foreach ($resultados as $posicion => $columna){
-                    echo "<tr>";
-                    echo "<td>" . $columna['Matricula_alumne'] . "</td>";
-                    echo "<td>" . $columna['DNI_alumne'] . "</td>";
-                    echo "<td>" . $columna['Nom_alumne'] . "</td>";
-                    echo "<td>" . $columna['Primer_Cognom_alumne'] . "</td>";
-                    echo "<td>" . $columna['Segon_Cognom_alumne'] . "</td>";
-                    echo "<td>" . $columna['Telefon_alumne'] . "</td>";
-                    echo "<td>" . $columna['Correu_alumne'] . "</td>";
-                    echo "<td>" . $columna['Sexe_alumne'] . "</td>";
-                    echo "<td>";
-                    echo "<a href='editar.php?ID=".$columna['Matricula_alumne']."' class='button_e'>Editar</a>";
-                    echo "<form action='borrar.php' method='post' style='display:inline;'>";
-                    echo "<input type='hidden' name='id' value='".$columna['Matricula_alumne']."'>";
-                    echo "<br> <br>";
-                    echo "<input type='submit' name='btn_eliminar' value='Borrar' class='button_b'>";
-                    echo "</form>";
-                    echo "</td>";
-                    echo "<tr>";
+                        echo "<tr>";
+                        echo "<td>" . $columna['Matricula_alumne'] . "</td>";
+                        echo "<td>" . $columna['DNI_alumne'] . "</td>";
+                        echo "<td>" . $columna['Nom_alumne'] . "</td>";
+                        echo "<td>" . $columna['Primer_Cognom_alumne'] . "</td>";
+                        echo "<td>" . $columna['Segon_Cognom_alumne'] . "</td>";
+                        echo "<td>" . $columna['Telefon_alumne'] . "</td>";
+                        echo "<td>" . $columna['Correu_alumne'] . "</td>";
+                        echo "<td>" . $columna['Sexe_alumne'] . "</td>";
+                        echo "<td>";
+                        echo "<a href='editar.php?ID=".$columna['Matricula_alumne']."' class='button_e'>Editar</a>";
+                        echo "<form action='borrar.php' method='post' style='display:inline;'>";
+                        echo "<input type='hidden' name='id' value='".$columna['Matricula_alumne']."'>";
+                        echo "<br> <br>";
+                        echo "<input type='submit' name='btn_eliminar' value='Borrar' class='button_b'>";
+                        echo "</form>";
+                        echo "</td>";
+                        echo "<tr>";
                     }
                 ?>
             </tbody>
