@@ -1,14 +1,15 @@
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="./../css/style.css" type="text/css">
     <title>Login</title>
 </head>
 <body>
     <form method="POST" action="./comprobacion_login.php">
-        <label for="nombre">Nombre de usuario</label><br>
-        <input type="text" name="nombre" ><br><br>
+        <label for="usuario">Nombre de usuario</label><br>
+        <input type="text" name="usuario" id="usuario" ><br><br>
         <label for="contra">Contraseña</label><br>
         <input type="password" name="contra"><br><br>
         <button type="submit">Enviar</button>
     </form>
-    <h3 id="error_login"></h3>
+    <p id="error_login"></p>
 </body>

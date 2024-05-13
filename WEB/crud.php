@@ -1,18 +1,58 @@
 <?php
 
-    require_once 'conexion.php';
-    
-    try{
-    
-        $consulta = $conn->query("SELECT * FROM tbl_alumnes;");
-    
+require_once 'conexion.php';
+
+try {
+    // Si se ha enviado el formulario de filtro de alumnos
+    if (isset($_POST['filtre_alumnes'])) {
+
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
 
-    }catch (PDOException $e){
-        echo "¡Algo falla!<br><br>";
-        echo "Error: " . $e->getMessage();
-    }
+    } else if (isset($_POST['filtre_matricula'])) {
 
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Matricula_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+
+    } else if (isset($_POST['filtre_dni_alumne'])) {
+
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY DNI_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['filtre_primer_cognom_alumne'])) {
+
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Primer_Cognom_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['filtre_segon_cognom_alumne'])) {
+
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Segon_Cognom_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['filtre_telefon_alumne'])) {
+
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Telefon_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['filtre_correu_alumne'])) {
+
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Correu_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['filtre_sexe_alumne'])) {
+
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Sexe_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else {
+        // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
+        $consulta = $conn->query("SELECT * FROM tbl_alumnes;");
+        $resultados = $consulta->fetchAll();
+    }
+} catch (PDOException $e) {
+    echo "¡Algo falla!<br><br>";
+    echo "Error: " . $e->getMessage();
+}
 ?>
 
 <head>
@@ -23,7 +63,7 @@
     <title>CRUD tbl_alumnes</title>
 </head>
 <body>
-    <br><br>
+    <br>
     <div class="contenedor">
         <br>
         <h2 style="text-align: center;">Tabla CRUD tbl_alumnes</h2>
@@ -34,7 +74,7 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-light" type="submit">Search</button>
                         <p class="texto-invisible">1</p>
-                        <a class="button" href="insertar.php">Crear</a>
+                        <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
                     </form>
                 </div>
             </nav>
@@ -42,16 +82,16 @@
     </div>
     <div class="container">
         <table>
-            <thead>
+            <thead class="thead">
                 <tr>
-                    <th>Matricula Alumne</th>
-                    <th>DNI Alumne</th>
-                    <th>Nom Alumne</th>
-                    <th>Primer Cognom Alumne</th>
-                    <th>Segon Cognom Alumne</th>
-                    <th>Telefon Alumne</th>
-                    <th>Correu Alumne</th>
-                    <th>Sexe Alumne</th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_matricula" value="Matricula Alumne"></form></th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_dni_alumne" value="DNI Alumne"></th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_alumnes" value="Nom Alumne"></form></th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_primer_cognom_alumne" value="Primer Cognom Alumne"></form></th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_segon_cognom_alumne" value="Segon Cognom Alumne"></form></th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_telefon_alumne" value="Telefon Alumne"></form></th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_correu_alumne" value="Correu Alumne"></form></th>
+                    <th><form action="" method="post"><input type="submit" name="filtre_sexe_alumne" value="Sexe Alumne"></form></th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -68,12 +108,9 @@
                         echo "<td>" . $columna['Correu_alumne'] . "</td>";
                         echo "<td>" . $columna['Sexe_alumne'] . "</td>";
                         echo "<td>";
-                        echo "<a href='editar.php?ID=".$columna['Matricula_alumne']."' class='button_e'>Editar</a>";
-                        echo "<form action='borrar.php' method='post' style='display:inline;'>";
-                        echo "<input type='hidden' name='id' value='".$columna['Matricula_alumne']."'>";
-                        echo "<br> <br>";
-                        echo "<input type='submit' name='btn_eliminar' value='Borrar' class='button_b'>";
-                        echo "</form>";
+                        echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'>Editar</a>";
+                        echo "<br><br>";
+                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'>Borrar</a>";
                         echo "</td>";
                         echo "<tr>";
                     }

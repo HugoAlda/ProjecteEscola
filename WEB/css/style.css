@@ -59,8 +59,9 @@ body {
     max-width: 95vw;
     max-height: 70vh; /* Establecemos una altura máxima del 90% del viewport */
     background-color: #fff;
-    overflow-y: auto; /* Agregamos un desplazamiento vertical */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Desplazamiento vertical */
+    /* margin-bottom: 2%; */
 }
 
 .contenedor {   
@@ -86,6 +87,11 @@ table {
     overflow-y: auto; /* Agregamos un desplazamiento vertical */
 }
 
+thead {
+    position: sticky;
+    top: -1;
+}
+
 th, td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
@@ -108,44 +114,47 @@ th {
     margin-bottom: 20px;
 }
 
-.button {
+.button_c {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    background-color: #4CAF50;
-    color: #fff;
+    color: lime;
+    border: 2px solid lime;
     border-radius: 5px;
 }
 
-.button:hover {
-    background-color: #45a049;
+.button_c:hover {
+    background-color: lime;
+    color: white;
 }
 
 .button_e {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    background-color: #008CBA;
-    color: #fff;
+    color: blue;
+    border: 2px solid blue;
     border-radius: 5px;
 }
 
 .button_e:hover {
-    background-color: #0073e6;
+    background-color: blue;
+    color: white;
 }
 
 .button_b {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    background-color: #f44336;
     font-size: 14px;
-    color: #fff;
+    color: red;
+    border: 2px solid red;
     border-radius: 5px;
 }
 
 .button_b:hover {
-    background-color: #d32f2f;
+    background-color: red;
+    color: white;
 }
 
 /* Estilos para el formulario de inicio de sesión */
@@ -184,3 +193,4 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
     background-color: #0056b3;
 }
+
