@@ -1,11 +1,12 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(35, 33, 40);
 }
+
 .texto-invisible {
     color: white;
 }
+
 /* Estilo para el contenedor del boton de inicio de sesion */
 .contenedor-btn-login {
     text-align: center;
@@ -56,7 +57,7 @@ body {
 /* Estilos CRUD */
 .container {
     width: 100vw; /* Cambiamos el ancho a 100% del viewport */
-    max-width: 95vw;
+    max-width: 100vw;
     max-height: 70vh; /* Establecemos una altura máxima del 90% del viewport */
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -64,8 +65,29 @@ body {
     /* margin-bottom: 2%; */
 }
 
+/* Alineación de los botones de la tabla */
+.container table th,
+.container table td {
+    text-align: center; /* Centramos el texto */
+}
+
+.container table th form,
+.container table td form {
+    display: flex;
+    justify-content: center;
+}
+
+.container table th form input[type="submit"],
+.container table td form input[type="submit"],
+.container table th form select,
+.container table td form select {
+    width: 100%; /* Establecemos un ancho del 100% para llenar el espacio disponible */
+    max-width: 150px; /* Establecemos un ancho máximo para evitar que los botones se expandan demasiado */
+    margin: 0 auto; /* Centramos horizontalmente los botones */
+}
+
 .contenedor {   
-    width: 95vw;
+    width: 100vw;
     background-color: #fff;
     overflow-y: auto; /* Desplazamiento vertical */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -168,8 +190,13 @@ form label {
     font-size: 14px;
 }
 
+form input{
+    color: black;
+}
 form input[type="text"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="email"],
+.selectform {
     width: 100%;
     max-width: 300px; /* Establecemos un ancho máximo */
     padding: 8px;

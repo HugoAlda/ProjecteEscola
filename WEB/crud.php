@@ -39,9 +39,19 @@ try {
         $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Correu_alumne ASC;");
         $resultados = $consulta->fetchAll();
     
-    } else if (isset($_POST['filtre_sexe_alumne'])) {
+    } else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sexe'])) {
+        // Obtén el valor seleccionado del formulario
 
-        $consulta = $conn->query("SELECT * FROM tbl_alumnes ORDER BY Sexe_alumne ASC;");
+        $seleccion = $_POST['sexe'];
+
+        // Realiza la consulta dependiendo de la selección
+        if ($seleccion == "home") {
+            $consulta = $conn->query("SELECT * FROM tbl_alumnes WHERE Sexe_alumne = 'Home';");
+        } elseif ($seleccion == "dona") {
+            $consulta = $conn->query("SELECT * FROM tbl_alumnes WHERE Sexe_alumne = 'Dona';");
+        }
+
+        // Obtiene los resultados de la consulta
         $resultados = $consulta->fetchAll();
     
     } else {
@@ -72,7 +82,7 @@ try {
                 <div class="container-fluid">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>
+                        <button class="button_e" type="submit">Search</button>
                         <p class="texto-invisible">1</p>
                         <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
                     </form>
@@ -91,8 +101,9 @@ try {
                     <th><form action="" method="post"><input type="submit" name="filtre_segon_cognom_alumne" value="Segon Cognom Alumne"></form></th>
                     <th><form action="" method="post"><input type="submit" name="filtre_telefon_alumne" value="Telefon Alumne"></form></th>
                     <th><form action="" method="post"><input type="submit" name="filtre_correu_alumne" value="Correu Alumne"></form></th>
-                    <th><form action="" method="post"><input type="submit" name="filtre_sexe_alumne" value="Sexe Alumne"></form></th>
+                    <th><form action="" method="post"><select name="sexe"><option></option><option name="home">Home</option><option name="dona">Dona</option></select></form></th>
                     <th>Acciones</th>
+                    <!-- <input type="submit" name="filtre_sexe_alumne" value="Sexe Alumne"> -->
                 </tr>
             </thead>
             <tbody>
