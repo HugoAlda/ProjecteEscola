@@ -1,15 +1,28 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./../css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <title>Login</title>
 </head>
-<body>
-    <form method="POST" action="./comprobacion_login.php">
-        <label for="usuario">Nombre de usuario</label><br>
-        <input type="text" name="usuario" id="usuario" ><br><br>
-        <label for="contra">Contraseña</label><br>
-        <input type="password" name="contra"><br><br>
-        <button type="submit">Enviar</button>
-    </form>
-    <p id="error_login"></p>
+<body class="LOGIN">
+    <img src="./../img/logoextendido.png" alt="" id="minilogoiniciosesion">
+    <div id="fromlogin">
+        <h1>Inicia Session</h1>
+        <form method="POST" action="./comprobacion_login.php">
+            <div class="inputContainer">
+                <input required="required" id="inputField" placeholder="Usuari" type="text" name="usuari">
+                <label class="usernameLabel" for="usuari">Usuari</label>
+                <svg viewBox="0 0 448 512" class="userIcon"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"></path></svg>
+            </div>
+            <br>
+            <div class="inputContainer">
+                <input required="required" id="inputField" placeholder="Contrasenya" type="password" name="contra">
+                <label class="usernameLabel" for="contra">Contrasenya</label>
+                <svg viewBox="0 0 448 512" class="userIcon"><path d="M400 224h-24V96c0-52.9-43.1-96-96-96S184 43.1 184 96v128H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h304c53 0 96-43 96-96V320c0-53-43-96-96-96zM224 384c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"></path></svg>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="error_login"></p>
+    </div>
 </body>

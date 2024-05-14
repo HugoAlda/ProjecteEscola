@@ -1,7 +1,7 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $userBD = $_POST['usuario'];
+        $userBD = $_POST['usuari'];
         $passBD = $_POST['contra'];
 
         $usuarioCorrecto = "root";

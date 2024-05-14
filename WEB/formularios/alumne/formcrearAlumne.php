@@ -41,7 +41,7 @@
     <br>
     <label for="Telefon_Alumne">Telèfon Alumne</label>
     <br>
-    <input type="tel" id="Telefon_Alumne" name="Telefon_Alumne" required>
+    <input type="tel" id="Telefon_Alumne" name="Telefon_Alumne" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
     <br>
     <label for="Correu_Alumne">Correu Alumne</label>
     <br>

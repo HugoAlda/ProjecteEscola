@@ -36,7 +36,7 @@
     <br>
     <label for="Telefon_Professor">Telèfon Professor</label>
     <br>
-    <input type="tel" id="Telefon_Professor" name="Telefon_Professor" required>
+    <input type="tel" id="Telefon_Professor" name="Telefon_Professor" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
     <br>
     <label for="Correu_Professor">Correu Professor</label>
     <br>

@@ -3,7 +3,7 @@ require_once '../conexion.php';
 
 if (isset($_GET['ID']) && !empty($_GET['ID'])) {
     $id = $_GET['ID'];
-    $stmt = $conn->prepare("DELETE FROM tbl_alumnes WHERE Matricula_alumne = :id");
+    $stmt = $conn->prepare("DELETE FROM bd_escola WHERE Matricula_alumne = :id");
     $stmt->bindParam(':id', $id);
     if ($stmt->execute()) {
         header('Location: ../crud.php');
