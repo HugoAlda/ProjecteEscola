@@ -10,7 +10,7 @@ try {
     if (isset($_POST['filtre_alumnes'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Nom_alumne ASC;");
@@ -19,7 +19,7 @@ try {
     } else if (isset($_POST['filtre_matricula'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Matricula_alumne ASC;");
@@ -28,7 +28,7 @@ try {
     } else if (isset($_POST['filtre_dni_alumne'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.DNI_alumne ASC;");
@@ -37,7 +37,7 @@ try {
     } else if (isset($_POST['filtre_primer_cognom_alumne'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Primer_Cognom_alumne ASC;");
@@ -46,7 +46,7 @@ try {
     } else if (isset($_POST['filtre_segon_cognom_alumne'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Segon_Cognom_alumne ASC;");
@@ -55,7 +55,7 @@ try {
     } else if (isset($_POST['filtre_telefon_alumne'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Telefon_alumne ASC;");
@@ -64,7 +64,7 @@ try {
     } else if (isset($_POST['filtre_correu_alumne'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Correu_alumne ASC;");
@@ -73,7 +73,7 @@ try {
     } else if (isset($_POST['filtre_curs_alumne'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY c.ID_curs ASC;");
@@ -82,7 +82,7 @@ try {
     } else {
         // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
+        FROM tbl_professors alu 
         INNER JOIN tbl_curs c 
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Matricula_alumne ASC;");
@@ -99,20 +99,20 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <title>CRUD tbl_alumnes</title>
+    <title>CRUD tbl_professors</title>
 </head>
 <body class="CRUD">
     <br>
     <div class="contenedor">
         <br>
         <div class="separacambioprofe">
-            <h2>Taula CRUD tbl_alumnes</h2>
+            <h2>Taula CRUD tbl_professors</h2>
             <!-- este es el boton que cambia de ver a alumnos a ver los profesores -->
-            <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
+            <a class="button_c" href="./crud.php">Cambiar a alumnes</a>
         </div>
         <div class="create-button">
         <!-- aqui cierra el div para separar el titulo de cambiar a profe -->
-                <nav>
+            <nav>
                 <!-- barra de navegacion es donde está lot titulos de las columnas -->
                 <div class="container">
                     <form class="d-flex" role="search">
@@ -125,7 +125,7 @@ try {
                         <input class="form-control me-2" type="search" placeholder="Correu">
                         <input class="form-control me-2" type="search" placeholder="Curs">
                         <input class="form-control me-2" type="search" placeholder="Sexe">
-                        <button class="button_e" type="submit">Cercar</button>
+                        <button class="button_e" type="submit">Search</button>
                         <p class="texto-invisible">1</p>
                         <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
                     </form>

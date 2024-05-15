@@ -23,6 +23,7 @@
     <meta charset="UTF-8">    
     <link rel="stylesheet" href="./../../css/csseditar_crear.css">
     <link rel="stylesheet" href="./../../css/style.css">
+    <title>Formulari Editar Professor</title>
 </head>
 <body>
     <br>
