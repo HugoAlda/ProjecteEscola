@@ -165,7 +165,7 @@ try {
                         echo "<td>";
                         echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'> Editar</a>";
                         echo "<br>";
-                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'>Borrar</a>";
+                        echo "<a href='acciones/eliminar.php?=".$columna['Matricula_alumne']."' class='button_b'>Borrar</a>";
                         echo "</td>";
                         echo "<tr>";
                     }

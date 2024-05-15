@@ -23,7 +23,7 @@
     <br>
     <input type="text" id="Matricula_Alumne" name="Matricula_Alumne" required>
     <br>
-    <label for="DNI_Alumne">DNI</label>
+    <label for="DNI_Alumne" >DNI</label>
     <br>
     <input type="text" id="DNI_Alumne" name="DNI_Alumne" required>
     <br>

@@ -13,7 +13,7 @@ $Sexe_Alumne = $_POST['Sexe_Alumne'];
 try {
     $conexion->beginTransaction();
     $stmt = $conexion->prepare("UPDATE tbl_alumnes SET Matricula_alumne = ?, DNI_Alumne = ?, Nom_Alumne = ?, Primer_Cognom_Alumne = ?, Segon_Cognom_Alumne = ?, Telefon_Alumne = ?, Correu_Alumne = ?, Curs_alumne = ?, Sexe_Alumne = ?,
-    WHERE ID_escuela = ?");
+    WHERE Matricula_alumne = ?");
     $stmt->execute([$Matricula_alumne, $DNI_Alumne, $Nom_Alumne, $Primer_Cognom_Alumne, $Segon_Cognom_Alumne, $Telefon_Alumne, $Correu_Alumne, $Sexe_Alumne]);
     $conexion->commit();
 

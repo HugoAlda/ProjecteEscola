@@ -7,85 +7,83 @@ try {
     $resultados = [];
 
     // Si se ha enviado el formulario de filtro de alumnos
-    if (isset($_POST['filtre_alumnes'])) {
+    if (isset($_POST['filtre_professors'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs, prof.Curs_assignat, prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Nom_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
 
     } else if (isset($_POST['filtre_matricula'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Matricula_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
 
     } else if (isset($_POST['filtre_dni_alumne'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.DNI_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
     
     } else if (isset($_POST['filtre_primer_cognom_alumne'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Primer_Cognom_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
     
     } else if (isset($_POST['filtre_segon_cognom_alumne'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Segon_Cognom_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
     
     } else if (isset($_POST['filtre_telefon_alumne'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Telefon_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
-    
     } else if (isset($_POST['filtre_correu_alumne'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Correu_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
-    
     } else if (isset($_POST['filtre_curs_alumne'])) {
 
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY c.ID_curs ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
     
     } else {
         // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_professors alu 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.FK_ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        FROM tbl_professors prof
         INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Matricula_alumne ASC;");
+        ON prof.FK_ID_curs = c.ID_curs 
+        ORDER BY prof.Nom_alumne ASC;");
         $resultados = $consulta->fetchAll();
     }
 } catch (PDOException $e) {
@@ -142,10 +140,10 @@ try {
                     <th><form method="post"><input type="submit" name="filtre_alumnes" value="Nom Alumne"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_primer_cognom_alumne" value="Primer Cognom"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_segon_cognom_alumne" value="Segon Cognom"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_telefon_alumne" value="Teléfon Alumne"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_correu_alumne" value="Correu Alumne"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_curs_alumne" value="Curs"></form></th>
-                    <th>Sexe Alumne</th>
+                    <th><form method="post"><input type="submit" name="filtre_telefon_alumne" value="Teléfon professor"></form></th>
+                    <th><form method="post"><input type="submit" name="filtre_correu_professor" value="Correu professor"></form></th>
+                    <th><form method="post"><input type="submit" name="filtre_curs_professor" value="Curs"></form></th>
+                    <th>Sexe professor</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -153,19 +151,21 @@ try {
                 <?php
                     foreach ($resultados as $posicion => $columna){
                         echo "<tr>";
-                        echo "<td>" . $columna['Matricula_alumne'] . "</td>";
-                        echo "<td>" . $columna['DNI_alumne'] . "</td>";
-                        echo "<td>" . $columna['Nom_alumne'] . "</td>";
-                        echo "<td>" . $columna['Primer_Cognom_alumne'] . "</td>";
-                        echo "<td>" . $columna['Segon_Cognom_alumne'] . "</td>";
-                        echo "<td>" . $columna['Telefon_alumne'] . "</td>";
-                        echo "<td>" . $columna['Correu_alumne'] . "</td>";
-                        echo "<td>" . $columna['Nom_curs'] . "</td>";
-                        echo "<td>" . $columna['Sexe_alumne'] . "</td>";
+                        echo "<td>" . $columna['DNI_professor'] . "</td>";
+                        echo "<td>" . $columna['Nom_professor'] . "</td>";
+                        echo "<td>" . $columna['Primer_Cognom_professor'] . "</td>";
+                        echo "<td>" . $columna['Segon_Cognom_professor'] . "</td>";
+                        echo "<td>" . $columna['Telefon_professor'] . "</td>";
+                        echo "<td>" . $columna['Correu_professor'] . "</td>";
+                        echo "<td>" . $columna['Coreu_professor'] . "</td>";
+                        echo "<td>" . $columna['Sexe_professor'] . "</td>";
+                        echo "<td>" . $columna['FK_ID_curs'] . "</td>";
+                        echo "<td>" . $columna['Curs_assignat'] . "</td>";
+                        echo "<td>" . $columna['Carrec_professor'] . "</td>";
                         echo "<td>";
-                        echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'> Editar</a>";
+                        echo "<a href='formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'> Editar</a>";
                         echo "<br>";
-                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'>Borrar</a>";
+                        echo "<a href='acciones/eliminar.php?DNI=".$columna['DNI_professor']."' class='button_b'>Borrar</a>";
                         echo "</td>";
                         echo "<tr>";
                     }
