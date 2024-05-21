@@ -124,16 +124,8 @@ try {
                 <!-- barra de navegacion es donde está lot titulos de las columnas -->
                 <div class="container">
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Matricula">
-                        <input class="form-control me-2" type="search" placeholder="DNI">
-                        <input class="form-control me-2" type="search" placeholder="Nom">
-                        <input class="form-control me-2" type="search" placeholder="1er Cognom">
-                        <input class="form-control me-2" type="search" placeholder="2gn Cognom">
-                        <input class="form-control me-2" type="search" placeholder="Teléfon">
-                        <input class="form-control me-2" type="search" placeholder="Correu">
-                        <input class="form-control me-2" type="search" placeholder="Curs">
-                        <input class="form-control me-2" type="search" placeholder="Sexe">
-                        <button class="button_e" type="submit">Cercar</button>
+                        <input class="form-control me-2" type="search" placeholder="Buscar">
+                        <button class="button_e" type="submit">Buscar</button>
                         <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
                     </form>
                 </div>
@@ -144,15 +136,15 @@ try {
         <table>
             <thead class="thead">
                 <tr>
-                    <th><form method="post"><input type="submit" name="filtre_matricula" value="Matricula Alumne"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_dni_alumne" value="DNI Alumne"></th>
-                    <th><form method="post"><input type="submit" name="filtre_alumnes" value="Nom Alumne"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_primer_cognom_alumne" value="Primer Cognom"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_segon_cognom_alumne" value="Segon Cognom"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_telefon_alumne" value="Teléfon Alumne"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_correu_alumne" value="Correu Alumne"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_curs_alumne" value="Curs"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_sexe_alumne" value="Sexe"></form></th>
+                    <th>Matricula</th>
+                    <th>DNI</th>
+                    <th>Nom</th>
+                    <th>Primer Cognom</th>
+                    <th>Segon Cognom</th>
+                    <th>Teléfon</th>
+                    <th>Correu</th>
+                    <th>Curs</th>
+                    <th>Sexe</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -171,7 +163,6 @@ try {
                         echo "<td>" . $columna['Sexe_alumne'] . "</td>";
                         echo "<td>";
                         echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
-                        echo "<br><br>";
                         echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
                         echo "</td>";
                         echo "<tr>";

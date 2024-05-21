@@ -116,17 +116,8 @@ try {
                 <!-- barra de navegacion es donde está lot titulos de las columnas -->
                 <div class="container">
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="DNI Professor">
-                        <input class="form-control me-2" type="search" placeholder="Nom">
-                        <input class="form-control me-2" type="search" placeholder="1er Cognom">
-                        <input class="form-control me-2" type="search" placeholder="2gn Cognom">
-                        <input class="form-control me-2" type="search" placeholder="Teléfon">
-                        <input class="form-control me-2" type="search" placeholder="Correu">
-                        <input class="form-control me-2" type="search" placeholder="Tutor">
-                        <input class="form-control me-2" type="search" placeholder="Curs">
-                        <input class="form-control me-2" type="search" placeholder="Carrec">
-                        <input class="form-control me-2" type="search" placeholder="Sexe">
-                        <button class="button_e" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Buscar">
+                        <button class="button_e" type="submit">Buscar</button>
                         <a class="button_c" href="formularios/professor/formcrearprofe.php">Crear</a>
                     </form>
                 </div>
@@ -137,16 +128,16 @@ try {
         <table>
             <thead class="thead">
                 <tr>
-                    <th><form method="post"><input type="submit" name="filtre_dni_alumne" value="DNI Professor"></th>
-                    <th><form method="post"><input type="submit" name="filtre_alumnes" value="Nom Professor"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_primer_cognom_alumne" value="Primer Cognom"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_segon_cognom_alumne" value="Segon Cognom"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_telefon_alumne" value="Teléfon professor"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_correu_professor" value="Correu professor"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_tutor_professor" value="Tutor"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_curs_asignat_professor" value="Curs Asignat"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_carrec_professor" value="Carrec Professor"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_sexe_professor" value="Sexe professor"></form></th>
+                    <th>DNI</th>
+                    <th>Nom</th>
+                    <th>Primer Cognom</th>
+                    <th>Segon Cognom</th>
+                    <th>Teléfon</th>
+                    <th>Correu</th>
+                    <th>Tutor</th>
+                    <th>Curs Asignat</th>
+                    <th>Carrec</th>
+                    <th>Sexe</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -166,7 +157,7 @@ try {
                         echo "<td>" . $columna['Sexe_professor'] . "</td>";
                         echo "<td>";
                         echo "<a href='./formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
-                        echo "<br><br>";
+
                         echo "<a href='./formularios/professor/eliminar.php?DNI=".$columna['DNI_professor']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
                         echo "</td>";
                         echo "<tr>";

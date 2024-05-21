@@ -3,7 +3,7 @@
 }
 
 img {
-    width: 5%;
+    width: 3%;
 }
 
 /* Estilos generales */
@@ -199,6 +199,7 @@ th {
     color: green;
     border: 2px solid green;
     border-radius: 5px;
+    margin-left: 5px;
 }
 
 .button_c:hover {
@@ -207,11 +208,9 @@ th {
 }
 
 .button_e {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
+    padding: 6px;
     color: blue;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     border-radius: 5px;
 }
 
@@ -221,12 +220,10 @@ th {
 }
 
 .button_b {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 14px;
+    padding: 6px;
+    margin-left: 5px;
     color: red;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     border-radius: 5px;
 }
 
