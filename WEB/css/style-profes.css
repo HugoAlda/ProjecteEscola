@@ -9,6 +9,7 @@ img {
 /* Estilos generales */
 .CRUD {
     font-family: Arial, sans-serif;
+    width: 50%;
 }
 
 .container {
@@ -18,7 +19,10 @@ img {
     max-height: 72vh;
     /* Establecemos una altura máxima del 90% del viewport */
     background-color: #fff;
+    /* background-color: red; */
     overflow-y: auto;
+    /* Desplazamiento vertical */
+    /* margin-bottom: 2%; */
 }
 
 .contenedor {

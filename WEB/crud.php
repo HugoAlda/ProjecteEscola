@@ -134,7 +134,6 @@ try {
                         <input class="form-control me-2" type="search" placeholder="Curs">
                         <input class="form-control me-2" type="search" placeholder="Sexe">
                         <button class="button_e" type="submit">Cercar</button>
-                        <p class="texto-invisible">1</p>
                         <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
                     </form>
                 </div>
@@ -171,9 +170,9 @@ try {
                         echo "<td>" . $columna['Nom_curs'] . "</td>";
                         echo "<td>" . $columna['Sexe_alumne'] . "</td>";
                         echo "<td>";
-                        echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'> Editar</a>";
+                        echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
                         echo "<br><br>";
-                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'>Borrar</a>";
+                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
                         echo "</td>";
                         echo "<tr>";
                     }

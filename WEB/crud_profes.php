@@ -98,7 +98,7 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./css/style-profes.css" type="text/css">
     <title>CRUD tbl_professors</title>
 </head>
 <body class="CRUD">
@@ -116,18 +116,18 @@ try {
                 <!-- barra de navegacion es donde está lot titulos de las columnas -->
                 <div class="container">
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Matricula">
-                        <input class="form-control me-2" type="search" placeholder="DNI">
+                        <input class="form-control me-2" type="search" placeholder="DNI Professor">
                         <input class="form-control me-2" type="search" placeholder="Nom">
                         <input class="form-control me-2" type="search" placeholder="1er Cognom">
                         <input class="form-control me-2" type="search" placeholder="2gn Cognom">
                         <input class="form-control me-2" type="search" placeholder="Teléfon">
                         <input class="form-control me-2" type="search" placeholder="Correu">
+                        <input class="form-control me-2" type="search" placeholder="Tutor">
                         <input class="form-control me-2" type="search" placeholder="Curs">
+                        <input class="form-control me-2" type="search" placeholder="Carrec">
                         <input class="form-control me-2" type="search" placeholder="Sexe">
                         <button class="button_e" type="submit">Search</button>
-                        <p class="texto-invisible">1</p>
-                        <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
+                        <a class="button_c" href="formularios/professor/formcrearprofe.php">Crear</a>
                     </form>
                 </div>
             </nav>
@@ -143,11 +143,10 @@ try {
                     <th><form method="post"><input type="submit" name="filtre_segon_cognom_alumne" value="Segon Cognom"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_telefon_alumne" value="Teléfon professor"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_correu_professor" value="Correu professor"></form></th>
-                    <th><form method="post"><input type="submit" name="filtre_sexe_professor" value="Sexe professor"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_tutor_professor" value="Tutor"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_curs_asignat_professor" value="Curs Asignat"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_carrec_professor" value="Carrec Professor"></form></th>
-                    <th>Sexe professor</th>
+                    <th><form method="post"><input type="submit" name="filtre_sexe_professor" value="Sexe professor"></form></th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -161,14 +160,14 @@ try {
                         echo "<td>" . $columna['Segon_Cognom_professor'] . "</td>";
                         echo "<td>" . $columna['Telefon_professor'] . "</td>";
                         echo "<td>" . $columna['Correu_professor'] . "</td>";
-                        echo "<td>" . $columna['Sexe_professor'] . "</td>";
                         echo "<td>" . $columna['Nom_curs'] . "</td>";
                         echo "<td>" . $columna['Curs_assignat'] . "</td>";
                         echo "<td>" . $columna['Carrec_professor'] . "</td>";
+                        echo "<td>" . $columna['Sexe_professor'] . "</td>";
                         echo "<td>";
-                        echo "<a href='formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'> Editar</a>";
-                        echo "<br>";
-                        echo "<a href='acciones/eliminar.php?DNI=".$columna['DNI_professor']."' class='button_b'>Borrar</a>";
+                        echo "<a href='./formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
+                        echo "<br><br>";
+                        echo "<a href='./formularios/professor/eliminar.php?DNI=".$columna['DNI_professor']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
                         echo "</td>";
                         echo "<tr>";
                     }

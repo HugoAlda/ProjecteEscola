@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Registro</title>
-    <link rel="stylesheet" href="../../CSS/csseditar_crear.css">
+    <link rel="stylesheet" href="./../../css/csseditar_crear.css">
+    <link rel="stylesheet" href="./../../css/style.css">
 </head>
 <body>
 <header>
@@ -17,7 +18,7 @@
 </header>
 
 
-<form action="../acciones/crear.php" method="POST">
+<form action="./../../acciones/crearProfe.php" method="POST">
     <label for="DNI_Professor">DNI</label>
     <br>
     <input type="text" id="DNI_Professor" name="DNI_Professor" required>
@@ -36,7 +37,7 @@
     <br>
     <label for="Telefon_Professor">Telèfon Professor</label>
     <br>
-    <input type="tel" id="Telefon_Professor" name="Telefon_Professor" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+    <input type="tel" id="Telefon_Professor" name="Telefon_Professor"  required>
     <br>
     <label for="Correu_Professor">Correu Professor</label>
     <br>
@@ -44,7 +45,7 @@
     <br>
     <label for="Sexe_Professor">Sexe Professor</label>
     <br>
-    <select id="Sexe_Professor" name="Sexe_Professor" required>
+    <select id="Sexe_Professor" name="Sexe_Professor" class="selectform"  required>
         <option value="Home">Home</option>
         <option value="Dona">Dona</option>
         <option value="No binari">No binari</option>
@@ -52,12 +53,12 @@
     <br>
     <label for="Tutor_Assignat">Tutor Assignat</label>
     <br>
-    <select id="Tutor_Assignat" name="Tutor_Assignat" required>
-        <option value="ASIX/DAW1">ASIX/DAW1</option>
-        <option value="ASIX2">ASIX2</option>
-        <option value="DAW2">DAW2</option>
-        <option value="SMX1">SMX1</option>
-        <option value="SMX2">SMX2</option>
+    <select id="Tutor_Assignat" name="Tutor_Assignat" class="selectform" required>
+        <option value="1">ASIX/DAW1</option>
+        <option value="2">ASIX2</option>
+        <option value="3">DAW2</option>
+        <option value="4">SMX1</option>
+        <option value="5">SMX2</option>
         <option value="No es tutor">No es tutor</option>
     </select>
     <br>
@@ -67,13 +68,13 @@
     <br>
     <label for="Carrec_Professor">Carrec Professor</label>
     <br>    
-    <select id="Carrec_Professor" name="Carrec_Professor" required>
+    <select id="Carrec_Professor" name="Carrec_Professor" class="selectform" required>
         <option value="Profe">Profe</option>
         <option value="Cap Departament">Cap Departament</option>
         <option value="Profe/Cap Dept">Profe/Cap Dept</option>
     </select>
     <br>
-    <input type="submit" value="Crear">
+    <input type="submit" value="Crear" class="button_form">
    
 </form>
 </body>
