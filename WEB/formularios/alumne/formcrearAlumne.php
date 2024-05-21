@@ -21,7 +21,7 @@
     <div class="formuuu">
     <label for="Matricula_Alumne">Matricula Alumne</label>
     <br>
-    <input type="text" id="Matricula_Alumne" name="Matricula_Alumne" required>
+    <input type="text" id="Matricula_Alumne" name="Matricula_Alumne" placeholder="9 caracteres" required>
     <br>
     <label for="DNI_Alumne" >DNI</label>
     <br>
@@ -41,7 +41,7 @@
     <br>
     <label for="Telefon_Alumne">Telèfon Alumne</label>
     <br>
-    <input type="tel" id="Telefon_Alumne" name="Telefon_Alumne" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+    <input type="text" id="Telefon_Alumne" name="Telefon_Alumne" required>
     <br>
     <label for="Correu_Alumne">Correu Alumne</label>
     <br>
@@ -55,6 +55,10 @@
         <option value="No binari">No binari</option>
     </select>
     <br>
+    <label for="FK_Curs">Curs</label>
+    <br>
+    <input type="text" id="FK_Curs" name="FK_Curs" required>
+    
     </div>
 <input type="submit" value="Crear" class="button_form">
 </form>

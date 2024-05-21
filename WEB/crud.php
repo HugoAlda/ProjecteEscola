@@ -79,6 +79,14 @@ try {
         ORDER BY c.ID_curs ASC;");
         $resultados = $consulta->fetchAll();
     
+    } else if (isset($_POST['filtre_sexe_alumne'])) {
+
+        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
+        FROM tbl_alumnes alu 
+        INNER JOIN tbl_curs c 
+        ON alu.FK_ID_curs = c.ID_curs 
+        ORDER BY alu.Sexe_alumne ASC;");
+        $resultados = $consulta->fetchAll();
     } else {
         // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
@@ -99,14 +107,14 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <title>CRUD tbl_alumnes</title>
+    <title>CRUD ALUMNES</title>
 </head>
 <body class="CRUD">
     <br>
     <div class="contenedor">
         <br>
         <div class="separacambioprofe">
-            <h2>Taula CRUD tbl_alumnes</h2>
+            <h2>CRUD ALUMNES</h2>
             <!-- este es el boton que cambia de ver a alumnos a ver los profesores -->
             <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
         </div>
@@ -145,7 +153,7 @@ try {
                     <th><form method="post"><input type="submit" name="filtre_telefon_alumne" value="Teléfon Alumne"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_correu_alumne" value="Correu Alumne"></form></th>
                     <th><form method="post"><input type="submit" name="filtre_curs_alumne" value="Curs"></form></th>
-                    <th>Sexe Alumne</th>
+                    <th><form method="post"><input type="submit" name="filtre_sexe_alumne" value="Sexe"></form></th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -165,7 +173,7 @@ try {
                         echo "<td>";
                         echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'> Editar</a>";
                         echo "<br><br>";
-                        echo "<a href='acciones/eliminar.php?=".$columna['Matricula_alumne']."' class='button_b'>Borrar</a>";
+                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'>Borrar</a>";
                         echo "</td>";
                         echo "<tr>";
                     }

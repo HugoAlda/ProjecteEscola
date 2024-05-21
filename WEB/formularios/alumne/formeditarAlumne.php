@@ -1,6 +1,6 @@
 <?php
     if (!isset($_GET['ID'])){
-        header('Location: ./../../index.php');
+        header('Location: ./../../crud.php');
         exit();
     } else {
         require_once './../../conexion.php';
@@ -34,7 +34,7 @@
         <h1>Editar</h1>
     </div>
     
-    <form action="./../../acciones/crear.php" method="post">
+    <form action="./../../acciones/editar.php" method="post">
         <div class="formuuu">
             <label for="Matricula_Alumne">Matricula Alumne</label><br>
             <input type="text" id="Matricula_Alumne" name="Matricula_Alumne" value="<?php echo $ID; ?>" readonly> <br><br>
@@ -47,13 +47,14 @@
             <label for="Segon_Cognom_Alumne">Segon Cognom Alumne</label><br>
             <input type="text" id="Segon_Cognom_Alumne" name="Segon_Cognom_Alumne" value="<?php echo $array[4]?>" required><br><br>
             <label for="Telefon_Alumne">Telèfon Alumne</label><br>
-            <input type="tel" id="Telefon_Alumne" name="Telefon_Alumne" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" value="<?php echo $array[5]?>" required><br><br>
+            <input type="tel" id="Telefon_Alumne" name="Telefon_Alumne" value="<?php echo $array[5]?>" required><br><br>
             <label for="Correu_Alumne">Correu Alumne</label><br>
             <input type="email" id="Correu_Alumne" name="Correu_Alumne" value="<?php echo $array[6]?>" required><br><br>
-            <label for="Curs_Alumne">Curs Alumne</label><br>
-            <input type="email" id="Curs_Alumne" name="Curs_Alumne" value="<?php echo $array[8]?>" required><br><br>
+            <label for="FK_ID_curs">Curs Alumne</label><br>
+            <input type="text" id="FK_ID_curs" name="FK_ID_curs" value="<?php echo $array[8]?>" required><br><br>
             <label for="Sexe_Alumne">Sexe Alumne</label><br>
             <select id="Sexe_Alumne" name="Sexe_Alumne" class="selectform" required>
+                <option value="Actual: <?php echo $array[7]?>"></option>
                 <option value="Home">Home</option>
                 <option value="Dona">Dona</option>
                 <option value="No binari">No binari</option>

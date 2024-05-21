@@ -35,6 +35,13 @@ INSERT INTO tbl_curs
 VALUES
     ('5','DAW2',"Desenvolupament d'Aplicacions Web",'Tarda','30', NULL, NULL);
 
+-- INSERTS CURS (No Tutor)
+
+INSERT INTO tbl_curs
+    (ID_curs, Nom_curs, Desc_curs,Horari_curs, Num_alumnes, Data_inici, Data_final)
+VALUES
+    ('6','No es Tutor',"Desenvolupament d'Aplicacions Web",'Tarda','30', NULL, NULL);
+
 -- INSERTS 9 PROFESSORS
 
 INSERT INTO tbl_professors 
@@ -42,12 +49,12 @@ INSERT INTO tbl_professors
 VALUES
     ('49490191X', 'Gerard', 'Orobitg', 'Boyer', '654829112', 'gerard.orobitg@oxon.com', 'Home', '3', 'SMX1/SMX2/ASIX1-DAW1/ASIX2','Profe/Cap Dept'),
     ('54878965D', 'Nuria', 'Garres', 'Gonzalez', '653587876', 'nuria.garres@oxon.com', 'Dona', '4', 'SMX1/SMX2/ASIX1-DAW1/ASIX2','Profe'),
-    ('12578445F', 'Sergio', 'Velasco', 'Rodríguez', '665600608', 'sergio.velasco@oxon.com', 'Home', NULL, 'SMX1/SMX2/ASIX1-DAW1/ASIX2','Profe'),
+    ('12578445F', 'Sergio', 'Velasco', 'Rodríguez', '665600608', 'sergio.velasco@oxon.com', 'Home', '6', 'SMX1/SMX2/ASIX1-DAW1/ASIX2','Profe'),
     ('66978452R', 'Pedro', 'Blanco', 'Andrés', '656536159', 'pedro.blanco@oxon.com', 'Home', '1', 'SMX1/SMX2/ASIX2','Profe'),
     ('41203698U', 'Alberto', 'De Santos', 'Ontoria', '661593612', 'alberto.desantos@oxon.com', 'Home', '5', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2','Profe'),
-    ('66676854Z', 'Fatima', 'Martínez', 'Macías', '666667771', 'fatima.macias@oxon.com', 'Dona', NULL, 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2','Profe'),
-    ('36552114O', 'Alejandro', 'Rueda', 'Santos', '693673624', 'alejandro.rueda@oxon.com', 'Home', NULL, 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2','Profe'),
-    ('74589665L', 'Ágnes', 'Plans', 'Berenguer', '654499212', 'agnes.plans@oxo', 'Dona', NULL, 'SMX1/ASIX1-DAW1/ASIX2','Profe'),
+    ('66676854Z', 'Fatima', 'Martínez', 'Macías', '666667771', 'fatima.macias@oxon.com', 'Dona', '6', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2','Profe'),
+    ('36552114O', 'Alejandro', 'Rueda', 'Santos', '693673624', 'alejandro.rueda@oxon.com', 'Home', '6', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2','Profe'),
+    ('74589665L', 'Ágnes', 'Plans', 'Berenguer', '654499212', 'agnes.plans@oxo', 'Dona', '6', 'SMX1/ASIX1-DAW1/ASIX2','Profe'),
     ('18745998J', 'Alex', 'Perez', 'Mielgo', '612615613', 'alex.perez@oxon.com', 'Home', '2', 'SMX1/SMX2','Profe');
 
 -- INSERTS MODULS
@@ -101,6 +108,12 @@ VALUES
     ('M3 - Ofimàtica (SMX1)', "Aplicació avançada d'eines d'oficina", 90, '74589665L', '1'),
     ('M5 - Xarxes (SMX1)', "Configuració avançada de xarxes d'ordinadors", 110, '12578445F', '1'),
     ('M6 - Seguretat (SMX1)', 'Principis avançats de seguretat informàtica', 130, '12578445F', '1');
+
+-- INSERTS MÒDULS (No Tutor)
+INSERT INTO tbl_moduls
+    (Nom_modul, Desc_modul, Hores_modul, FK_DNI_professor, FK_ID_Curs)
+VALUES
+    ('M13 - Tutoria (Tutor)', "Tutoria", 100, '66978452R', '6');
 
 -- INSERTS MÒDULS (SMX2)
 INSERT INTO tbl_moduls

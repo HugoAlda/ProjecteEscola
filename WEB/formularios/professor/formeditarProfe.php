@@ -1,6 +1,6 @@
 <?php
     if (!isset($_GET['ID'])){
-        header('Location: ./../../index.php');
+        header('Location: ./../../crud_profes.php');
         exit();
     } else {
         require_once './../../conexion.php';
@@ -33,7 +33,7 @@
     <div class="titulo">
         <h1>Editar</h1>
     </div>
-    <form action="../acciones/crear.php" method="POST">
+    <form action="./../acciones/editarProfe.php" method="POST">
         <label for="DNI_Professor">DNI</label><br>
         <input type="text" id="DNI_Professor" name="DNI_Professor" required><br>
         <label for="Nom_Professor">Nom Professor</label><br>

@@ -2,7 +2,6 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 
 /* Asegurar que todos los elementos ocupen toda la altura de la pantalla */

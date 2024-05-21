@@ -1,32 +1,36 @@
 <?php
-require_once '../conexion.php';
-$nombre = $_POST['Nombre_Alumno'];
-$num = $_POST['Num_alumn'];
-
+require_once './../conexion.php';
+$Matricula=$_POST['Matricula_Alumne'];
+$DNI = $_POST['DNI_Alumne'];
+$nombre = $_POST['Nom_Alumne'];
+$primer_cognom=$_POST['Primer_Cognom_Alumne'];
+$Segon_cognom=$_POST['Segon_Cognom_Alumne'];
+$tel=$_POST['Telefon_Alumne'];
+$correu=$_POST['Correu_Alumne'];
+$sexe=$_POST['Sexe_Alumne'];
+$FK=$_POST['FK_Curs'];
 try {
-    $conexion->beginTransaction();
-    $stmt = $conexion->prepare("INSERT INTO escuelas (Nombre_Escuela, Num_alumn) VALUES (?, ?)");
-    $stmt->execute([$nombre, $num]);
-    $conexion->commit();
+    // Asegurarse de que la conexión a la base de datos se haya establecido correctamente
+    if ($conn === null) {
+        throw new PDOException("Conexión a la base de datos no establecida.");
+    }
 
-    header('Location: ../index.php');
+    $conn->beginTransaction();
+
+    // Usar nombres de columnas y variables consistentes
+    $stmt = $conn->prepare("INSERT INTO tbl_alumnes (Matricula_Alumne,DNI_Alumne,Nom_Alumne,Primer_Cognom_alumne,Segon_Cognom_alumne,Telefon_alumne,Correu_alumne,Sexe_alumne,FK_ID_curs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )");
+    $stmt->execute([$Matricula,$DNI,$nombre,$primer_cognom,$Segon_cognom,$tel,$correu,$sexe,$FK]);
+
+    $conn->commit();
+
+    header('Location: ../crud.php');
     exit();
 } catch(PDOException $e) {
-    $conexion->rollback();
+    $conn->rollBack();
     echo "Error en la transacción: " . $e->getMessage();
 }
+
+// Liberar recursos
 $stmt = null;
-$conexion = null;
-
-
-CREATE TABLE tbl_alumnes(
-    Matricula_alumne CHAR(9) NOT NULL PRIMARY KEY,
-    DNI_alumne CHAR(9) NOT NULL,
-    Nom_alumne VARCHAR(30) NULL,
-    Primer_Cognom_alumne VARCHAR(60) NOT NULL,
-    Segon_Cognom_alumne VARCHAR(60) NOT NULL,
-    Telefon_alumne CHAR(9) NOT NULL,
-    Correu_alumne VARCHAR(50) NOT NULL,
-    Sexe_alumne ENUM('Home','Dona','No binari') NOT NULL,
-    FK_ID_curs INT NOT NULL
-  );
+$conn = null;
+?>
