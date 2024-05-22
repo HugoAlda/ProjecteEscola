@@ -18,7 +18,7 @@ try {
     $conn->beginTransaction();
 
     // Usar nombres de columnas y variables consistentes
-    $stmt = $conn->prepare("INSERT INTO tbl_alumnes (Matricula_Alumne,DNI_Alumne,Nom_Alumne,Primer_Cognom_alumne,Segon_Cognom_alumne,Telefon_alumne,Correu_alumne,Sexe_alumne,FK_ID_curs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )");
+    $stmt = $conn->prepare("INSERT INTO tbl_alumnes (Matricula_alumne,DNI_alumne,Nom_alumne,Primer_Cognom_alumne,Segon_Cognom_alumne,Telefon_alumne,Correu_alumne,Sexe_alumne,FK_ID_curs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )");
     $stmt->execute([$Matricula,$DNI,$nombre,$primer_cognom,$Segon_cognom,$tel,$correu,$sexe,$FK]);
 
     $conn->commit();

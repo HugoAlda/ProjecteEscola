@@ -5,12 +5,13 @@
 
 
 input[type="text"]{
-    width: 60%;
+    width: 100%;
  
 }
 
 .titulo {
     text-align: center;
+    
 }
 
 .button_form{

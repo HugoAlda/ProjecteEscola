@@ -115,17 +115,14 @@ try {
         <br>
         <div class="separacambioprofe">
             <h2>CRUD ALUMNES</h2>
-            <!-- este es el boton que cambia de ver a alumnos a ver los profesores -->
             <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
         </div>
         <div class="create-button">
-        <!-- aqui cierra el div para separar el titulo de cambiar a profe -->
                 <nav>
-                <!-- barra de navegacion es donde está lot titulos de las columnas -->
                 <div class="container">
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar">
-                        <button class="button_e" type="submit">Buscar</button>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
                         <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
                     </form>
                 </div>
@@ -162,8 +159,18 @@ try {
                         echo "<td>" . $columna['Nom_curs'] . "</td>";
                         echo "<td>" . $columna['Sexe_alumne'] . "</td>";
                         echo "<td>";
-                        echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
-                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
+                        echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'>";
+                            echo "<div class='image-container'>";
+                                echo "<img src='./img/pen-to-square-solid.png' alt='Imagen Default' class='image image-default'>";
+                                echo "<img src='./img/pen-to-square-solid-blue.png' alt='Imagen Hover' class='image image-hover'>";
+                            echo "</div>";
+                        echo "</a>";
+                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'>";
+                            echo "<div class='image-container'>";
+                                echo "<img src='./img/dumpster-solid.png' alt='Imagen Default' class='image image-default'>";
+                                echo "<img src='./img/dumpster-solid-red.png' alt='Imagen Hover' class='image image-hover'>";
+                            echo "</div>";
+                        echo "</a>";
                         echo "</td>";
                         echo "<tr>";
                     }

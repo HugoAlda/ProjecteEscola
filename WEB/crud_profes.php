@@ -81,11 +81,12 @@ try {
     
     } else {
         // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
-        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.Nom_curs, prof.Curs_assignat, prof.Carrec_professor 
-        FROM tbl_professors prof
+        $consulta = $conn->query("SELECT p.DNI_professor, p.Nom_professor, p.Primer_Cognom_professor, p.Segon_Cognom_professor, p.Telefon_professor, p.Correu_professor, p.Sexe_professor, c.Nom_curs, p.Curs_assignat, p.Carrec_professor, FK_Modul_professors
+        FROM tbl_professors p
+        INNER JOIN tbl_moduls m
+        ON p.FK_Modul_professors = m.Nom_modul
         INNER JOIN tbl_curs c 
-        ON prof.FK_ID_curs = c.ID_curs 
-        ORDER BY prof.Nom_professor ASC;");
+        ON m.FK_ID_Curs = c.ID_curs;");
         $resultados = $consulta->fetchAll();
     }
 } catch (PDOException $e) {
@@ -138,6 +139,7 @@ try {
                     <th>Curs Asignat</th>
                     <th>Carrec</th>
                     <th>Sexe</th>
+                    <th>Moduls Professors</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -155,10 +157,11 @@ try {
                         echo "<td>" . $columna['Curs_assignat'] . "</td>";
                         echo "<td>" . $columna['Carrec_professor'] . "</td>";
                         echo "<td>" . $columna['Sexe_professor'] . "</td>";
+                        echo "<td>" . $columna['FK_Modul_professors'] . "</td>";
                         echo "<td>";
                         echo "<a href='./formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
 
-                        echo "<a href='./formularios/professor/eliminar.php?DNI=".$columna['DNI_professor']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
+                        echo "<a href='./acciones/eliminarProfe.php?DNI=".$columna['DNI_professor']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
                         echo "</td>";
                         echo "<tr>";
                     }

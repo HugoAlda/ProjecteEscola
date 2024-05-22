@@ -1,13 +1,37 @@
 function validanombre() {
-    let valor1 = document.getElementById("nombre_apellidos").value;
+    let valor1 = document.getElementById("Nom_Alumne" || "Nom_Professor").value;
     if (valor1 == null || valor1.length == 0 ) {
-        document.getElementById("error_nombre_apellidos").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
-        document.getElementById("error_nombre_apellidos").innerHTML = "Introduce tu nombre, no lo hagas cosas raras con espacios";
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo hagas cosas raras con espacios";
     } else if (!isNaN(valor1)) {
-        document.getElementById("error_nombre_apellidos").innerHTML = "Introduce tu nombre, no escribas numeros hombreee, eres tonto? solo tu nombre macho nada mas";
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no escribas numeros hombreee, eres tonto? solo tu nombre macho nada mas";
     } else {
-        document.getElementById("error_nombre_apellidos").innerHTML = "";
+        document.getElementById("error_nom").innerHTML = "";
+    }
+}
+function validaapellido1() {
+    let valor1 = document.getElementById("Primer_Cognom_Alumne").value;
+    if (valor1 == null || valor1.length == 0 ) {
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
+    } else if (/^\s+$/.test(valor1)) {
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu nombre, no lo hagas cosas raras con espacios";
+    } else if (!isNaN(valor1)) {
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu nombre, no escribas numeros hombreee, eres tonto? solo tu nombre macho nada mas";
+    } else {
+        document.getElementById("error_cognom1").innerHTML = "";
+    }
+}
+function validaapellido2() {
+    let valor1 = document.getElementById("Segon_Cognom_Alumne").value;
+    if (valor1 == null || valor1.length == 0 ) {
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
+    } else if (/^\s+$/.test(valor1)) {
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu nombre, no lo hagas cosas raras con espacios";
+    } else if (!isNaN(valor1)) {
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu nombre, no escribas numeros hombreee, eres tonto? solo tu nombre macho nada mas";
+    } else {
+        document.getElementById("error_cognom2").innerHTML = "";
     }
 }
 function validaedad() {

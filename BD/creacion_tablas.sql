@@ -26,9 +26,9 @@ CREATE TABLE tbl_professors(
   Telefon_professor CHAR(9) NOT NULL,
   Correu_professor VARCHAR(50) NOT NULL,
   Sexe_professor ENUM('Home', 'Dona', 'No binari') NOT NULL,
-  FK_ID_curs INT NULL,
   Curs_assignat VARCHAR(50) NOT NULL,
-  Carrec_professor ENUM('Profe', 'Cap Departament', 'Profe/Cap Dept') NOT NULL
+  Carrec_professor ENUM('Profe', 'Cap Departament', 'Profe/Cap Dept') NOT NULL,
+  FK_Modul_professors VARCHAR(100) NULL
 );
 
 CREATE TABLE tbl_curs(
@@ -45,18 +45,14 @@ CREATE TABLE tbl_moduls(
   Nom_modul VARCHAR(100) NOT NULL PRIMARY KEY,
   Desc_modul VARCHAR(200) NOT NULL,
   Hores_modul SMALLINT NULL,
-  -- FK DNI_professor
-  FK_DNI_professor CHAR(9) NOT NULL,
   -- FK Curs
-  FK_ID_Curs INT NOT NULL
+  FK_ID_Curs INT NULL
 );
 
 -- ALTER TABLES
 
 ALTER TABLE tbl_alumnes ADD CONSTRAINT fk_tbl_Alumne_Curs FOREIGN KEY (FK_ID_curs) REFERENCES tbl_curs(ID_curs);
 
-ALTER TABLE tbl_moduls ADD CONSTRAINT fk_tbl_Moduls_Professors FOREIGN KEY (FK_DNI_professor) REFERENCES tbl_professors(DNI_professor);
-
 ALTER TABLE tbl_moduls ADD CONSTRAINT fk_tbl_Moduls_Curs FOREIGN KEY (FK_ID_Curs) REFERENCES tbl_curs(ID_curs);
 
-ALTER TABLE tbl_professors ADD CONSTRAINT fk_tbl_Professors_Curs FOREIGN KEY (FK_ID_curs) REFERENCES tbl_curs(ID_curs);
+ALTER TABLE tbl_professors ADD CONSTRAINT fk_tbl_Professors_Modul FOREIGN KEY (FK_Modul_professors) REFERENCES tbl_moduls(Nom_modul);
