@@ -119,7 +119,7 @@ try {
         </div>
         <div class="create-button">
                 <nav>
-                <div class="container">
+                <div>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -147,31 +147,31 @@ try {
             </thead>
             <tbody>
                 <?php
-                    foreach ($resultados as $posicion => $columna){
+                    foreach ($resultados as $posicion => $columna) {
                         echo "<tr>";
-                        echo "<td>" . $columna['Matricula_alumne'] . "</td>";
-                        echo "<td>" . $columna['DNI_alumne'] . "</td>";
-                        echo "<td>" . $columna['Nom_alumne'] . "</td>";
-                        echo "<td>" . $columna['Primer_Cognom_alumne'] . "</td>";
-                        echo "<td>" . $columna['Segon_Cognom_alumne'] . "</td>";
-                        echo "<td>" . $columna['Telefon_alumne'] . "</td>";
-                        echo "<td>" . $columna['Correu_alumne'] . "</td>";
-                        echo "<td>" . $columna['Nom_curs'] . "</td>";
-                        echo "<td>" . $columna['Sexe_alumne'] . "</td>";
-                        echo "<td>";
-                        echo "<a href='formularios/alumne/formeditarAlumne.php?ID=".$columna['Matricula_alumne']."' class='button_e'>";
-                            echo "<div class='image-container'>";
-                                echo "<img src='./img/pen-to-square-solid.png' alt='Imagen Default' class='image image-default'>";
-                                echo "<img src='./img/pen-to-square-solid-blue.png' alt='Imagen Hover' class='image image-hover'>";
-                            echo "</div>";
-                        echo "</a>";
-                        echo "<a href='acciones/eliminar.php?ID=".$columna['Matricula_alumne']."' class='button_b'>";
-                            echo "<div class='image-container'>";
-                                echo "<img src='./img/dumpster-solid.png' alt='Imagen Default' class='image image-default'>";
-                                echo "<img src='./img/dumpster-solid-red.png' alt='Imagen Hover' class='image image-hover'>";
-                            echo "</div>";
-                        echo "</a>";
-                        echo "</td>";
+                            echo "<td>" . $columna['Matricula_alumne'] . "</td>";
+                            echo "<td>" . $columna['DNI_alumne'] . "</td>";
+                            echo "<td>" . $columna['Nom_alumne'] . "</td>";
+                            echo "<td>" . $columna['Primer_Cognom_alumne'] . "</td>";
+                            echo "<td>" . $columna['Segon_Cognom_alumne'] . "</td>";
+                            echo "<td>" . $columna['Telefon_alumne'] . "</td>";
+                            echo "<td>" . $columna['Correu_alumne'] . "</td>";
+                            echo "<td>" . $columna['Nom_curs'] . "</td>";
+                            echo "<td>" . $columna['Sexe_alumne'] . "</td>";
+                            echo "<td>";
+                            echo "<a href='formularios/alumne/formeditarAlumne.php?ID=" . $columna['Matricula_alumne'] . "' class='button_e'>";
+                                echo "<div class='image-container'>";
+                                    echo "<img src='./img/pen-to-square-solid.png' alt='Imagen Default' class='image image-default'>";
+                                    echo "<img src='./img/pen-to-square-solid-blue.png' alt='Imagen Hover' class='image image-hover'>";
+                                echo "</div>";
+                            echo "</a>";
+                            echo "<a href='acciones/eliminar.php?ID=" . $columna['Matricula_alumne'] . "' class='button_b'>";
+                                echo "<div class='image-container'>";
+                                    echo "<img src='./img/dumpster-solid.png' alt='Imagen Default' class='image image-default'>";
+                                    echo "<img src='./img/dumpster-solid-red.png' alt='Imagen Hover' class='image image-hover'>";
+                                echo "</div>";
+                            echo "</a>";
+                            echo "</td>";
                         echo "<tr>";
                     }
                 ?>
