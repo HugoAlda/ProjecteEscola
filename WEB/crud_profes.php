@@ -9,7 +9,7 @@ try {
     // Si se ha enviado el formulario de filtro de alumnos
     if (isset($_POST['filtre_professors'])) {
 
-        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.ID_curs, prof.Curs_assignat, prof.Carrec_professor 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.ID_curs, prof.Cursos_assignat, prof.Carrec_professor 
         FROM tbl_professors prof
         INNER JOIN tbl_curs c 
         ON prof.FK_ID_curs = c.ID_curs 
@@ -18,7 +18,7 @@ try {
 
     } else if (isset($_POST['filtre_matricula'])) {
 
-        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.ID_curs,prof.Curs_assignat,prof.Carrec_professor 
+        $consulta = $conn->query("SELECT prof.DNI_professor, prof.Nom_professor,prof.DNI_professor, prof.Primer_Cognom_professor, prof.Segon_Cognom_professor, prof.Telefon_professor, prof.Correu_professor, prof.Sexe_professor, c.ID_curs,prof.Cursos_assignat,prof.Carrec_professor 
         FROM tbl_professors prof
         INNER JOIN tbl_curs c 
         ON prof.FK_ID_curs = c.ID_curs 
@@ -81,12 +81,8 @@ try {
     
     } else {
         // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
-        $consulta = $conn->query("SELECT p.DNI_professor, p.Nom_professor, p.Primer_Cognom_professor, p.Segon_Cognom_professor, p.Telefon_professor, p.Correu_professor, p.Sexe_professor, c.Nom_curs, p.Curs_assignat, p.Carrec_professor, FK_Modul_professors
-        FROM tbl_professors p
-        INNER JOIN tbl_moduls m
-        ON p.FK_Modul_professors = m.Nom_modul
-        INNER JOIN tbl_curs c 
-        ON m.FK_ID_Curs = c.ID_curs;");
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors ;");
         $resultados = $consulta->fetchAll();
     }
 } catch (PDOException $e) {
@@ -100,8 +96,11 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./css/style-profes.css" type="text/css">
-    <title>CRUD tbl_professors</title>
+    <title>CRUD PROFESSORS</title>
 </head>
+<header>
+    <img src="./img/logoextendido.png" alt="">
+</header>
 <body class="CRUD">
     <br>
     <div class="contenedor">
@@ -135,11 +134,10 @@ try {
                     <th>Segon Cognom</th>
                     <th>Teléfon</th>
                     <th>Correu</th>
-                    <th>Tutor</th>
-                    <th>Curs Asignat</th>
-                    <th>Carrec</th>
                     <th>Sexe</th>
-                    <th>Moduls Professors</th>
+                    <th>Cursos Asignats</th>
+                    <th>Carrec</th>
+                    <th>Tutor asignat</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -153,11 +151,10 @@ try {
                         echo "<td>" . $columna['Segon_Cognom_professor'] . "</td>";
                         echo "<td>" . $columna['Telefon_professor'] . "</td>";
                         echo "<td>" . $columna['Correu_professor'] . "</td>";
-                        echo "<td>" . $columna['Nom_curs'] . "</td>";
-                        echo "<td>" . $columna['Curs_assignat'] . "</td>";
-                        echo "<td>" . $columna['Carrec_professor'] . "</td>";
                         echo "<td>" . $columna['Sexe_professor'] . "</td>";
-                        echo "<td>" . $columna['FK_Modul_professors'] . "</td>";
+                        echo "<td>" . $columna['Cursos_assignats'] . "</td>";
+                        echo "<td>" . $columna['Carrec_professor'] . "</td>";
+                        echo "<td>" . $columna['Tutor_assignat'] . "</td>";
                         echo "<td>";
                         echo "<a href='./formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
 

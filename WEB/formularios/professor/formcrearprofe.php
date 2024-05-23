@@ -21,27 +21,27 @@
 <form action="./../../acciones/crearProfe.php" method="POST">
     <label for="DNI_Professor">DNI</label>
     <br>
-    <input type="text" id="DNI_Professor" name="DNI_Professor" required>
+    <input type="text" id="DNI_Professor" name="DNI_Professor" maxlength="9" required>
     <br>
     <label for="Nom_Professor">Nom Professor</label>
     <br>
-    <input type="text" id="Nom_Professor" name="Nom_Professor" required>
+    <input type="text" id="Nom_Professor" name="Nom_Professor" maxlength="30" required>
     <br>
     <label for="Primer_Cognom_Professor">Primer Cognom Professor</label>
     <br>
-    <input type="text" id="Primer_Cognom_Professor" name="Primer_Cognom_Professor" required>
+    <input type="text" id="Primer_Cognom_Professor" name="Primer_Cognom_Professor" maxlength="60" required>
     <br>
     <label for="Segon_Cognom_Professor">Segon Cognom Professor</label>
     <br>
-    <input type="text" id="Segon_Cognom_Professor" name="Segon_Cognom_Professor" required>
+    <input type="text" id="Segon_Cognom_Professor" name="Segon_Cognom_Professor" maxlength="60" required>
     <br>
     <label for="Telefon_Professor">Telèfon Professor</label>
     <br>
-    <input type="tel" id="Telefon_Professor" name="Telefon_Professor"  required>
+    <input type="tel" id="Telefon_Professor" name="Telefon_Professor" maxlength="9" required>
     <br>
     <label for="Correu_Professor">Correu Professor</label>
     <br>
-    <input type="email" id="Correu_Professor" name="Correu_Professor" required>
+    <input type="email" id="Correu_Professor" name="Correu_Professor" maxlength="50" required>
     <br>
     <label for="Sexe_Professor">Sexe Professor</label>
     <br>
@@ -51,20 +51,10 @@
         <option value="No binari">No binari</option>
     </select>
     <br>
-    <label for="Tutor_Assignat">Tutor Assignat</label>
     <br>
-    <select id="Tutor_Assignat" name="Tutor_Assignat" class="selectform" required>
-        <option value="1">ASIX/DAW1</option>
-        <option value="2">ASIX2</option>
-        <option value="3">DAW2</option>
-        <option value="4">SMX1</option>
-        <option value="5">SMX2</option>
-        <option value="No es tutor">No es tutor</option>
-    </select>
+    <label for="Curs_Assignat">Cursos Assignats</label>
     <br>
-    <label for="Curs_Assignat">Curs Assignat</label>
-    <br>
-    <input type="text" id="Curs_Assignat" name="Curs_Assignat" required>
+    <input type="text" id="Cursos_assignats" name="Cursos_assignats" maxlength="50" required>
     <br>
     <label for="Carrec_Professor">Carrec Professor</label>
     <br>    
@@ -73,6 +63,17 @@
         <option value="Cap Departament">Cap Departament</option>
         <option value="Profe/Cap Dept">Profe/Cap Dept</option>
     </select>
+    <br>
+    <label for="Tutor_assignat">Tutor Assignat</label>
+    <br>
+    <select id="utor_assignat" name="Tutor_assignat" class="selectform" required>
+        <option value="SMX1">SMX1</option>
+        <option value="SMX2">SMX2</option>
+        <option value="ASIX1/DAW1">ASIX1/DAW1</option>
+        <option value="ASIX2">ASIX2</option>
+        <option value="DAW2">DAW2</option>
+        <option value="No es tutor">No es tutor</option>
+    </select> 
     <br>
     <input type="submit" value="Crear" class="button_form">
    

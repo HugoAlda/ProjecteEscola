@@ -6,88 +6,81 @@ VALUES
     (2, 'SMX2', 'Sistemes Microinformátics i Xarxes (2gn any)', 'Tarda', 30, NULL, NULL),
     (3, 'ASIX1/DAW1', 'Administració de Sistemes Informàtics en Xarxa', 'Matí', 30, NULL, NULL),
     (4, 'ASIX2', 'Administració de Sistemes Informàtics en Xarxa', 'Matí', 30, NULL, NULL),
-    (5, 'DAW2', "Desenvolupament d'Aplicacions Web", 'Tarda', 30, NULL, NULL),
-    (6, 'No es Tutor', "Desenvolupament d'Aplicacions Web", 'Tarda', 30, NULL, NULL);
-
--- INSERTS MODULS (ASIX1/DAW1)
-INSERT INTO tbl_moduls
-    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs)
-VALUES
-    (1, 'M1 - Sistemes operatius (ASIX1/DAW1)', 'Introducció als sistemes operatius', 100, 3),
-    (2, 'M2 - Bases de dades (ASIX1/DAW1)', 'Fonaments de bases de dades relacionals', 120, 3),
-    (3, 'M3 - Programació bàsica (ASIX1/DAW1)', 'Principis bàsics de programació', 80, 3),
-    (4, 'M4 - Disseny XML (ASIX1/DAW1)', 'Disseny de documents XML', 60, 3),
-    (5, 'M5 - Entorn (ASIX1/DAW1)', "Configuració d'entorns de desenvolupament", 90, 3),
-    (6, 'M7 - Xarxes (ASIX1/DAW1)', "Conceptes bàsics de xarxes d'ordinadors", 110, 3);
-
--- INSERTS MODULS (DAW2)
-INSERT INTO tbl_moduls
-    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs)
-VALUES
-    (7, 'M1 - Sistemes Informàtics (DAW2)', 'Sistemes informàtics avançats', 120, 5),
-    (8, 'M2 - Bases de dades (DAW2)', 'Disseny avançat de bases de dades', 130, 5),
-    (9, 'M3 - Programació bàsica (DAW2)', 'Programació avançada en diversos llenguatges', 90, 5),
-    (10, "M4 - Llenguatge de marques i sistemes de gestió d'informació (DAW2)", "Gestió avançada de sistemes d'informació", 110, 5),
-    (11, 'M5 - Entorns de desenvolupament (DAW2)', "Desenvolupament avançat d'entorns de programari", 120, 5),
-    (12, 'M6 - Desenvolupament web en entorn client (DAW2)', 'Desenvolupament avançat de JavaScript', 120, 5),
-    (13, 'M7 - Desenvolupament web en entorn servidor (DAW2)', "Desenvolupament d'aplicacions web en entorns de servidor", 150, 5),
-    (14, "M8 - Desplegament d'aplicacions web (DAW2)", "Desplegament avançat d'aplicacions web", 130, 5),
-    (15, "M9 - Disseny d'interfícies web (DAW2)", "Disseny avançat d'interfícies d'usuari", 100, 5);
-
--- INSERTS MODULS (ASIX2)
-INSERT INTO tbl_moduls
-    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs)
-VALUES
-    (16, 'M1 - Implantació de sistemes operatius (ASIX2)', 'Implantació avançada de sistemes operatius', 110, 4),
-    (17, 'M2 - Gestió de bases de dades (ASIX2)', 'Gestió avançada de bases de dades', 130, 4),
-    (18, 'M3 - Programació bàsica (ASIX2)', 'Programació avançada en diferents àmbits', 100, 4),
-    (19, "M4 - Llenguatges de marques i sistemes de gestió d'informació (ASIX2)", "Gestió avançada de sistemes d'informació", 120, 4),
-    (20, 'M5 - Fonaments de maquinari (ASIX2)', 'Conceptes avançats de maquinari', 90, 4),
-    (21, 'M6 - Administració de sistemes operatius (ASIX2)', 'Administració avançada de sistemes operatius', 130, 4),
-    (22, 'M7 - Planificació i administració de xarxes (ASIX2)', 'Planificació i administració avançada de xarxes', 140, 4),
-    (23, 'M8 - Serveis de xarxa i internet (ASIX2)', 'Serveis avançats de xarxa i internet', 120, 4),
-    (24, "M9 - Implantació d'aplicacions web (ASIX2)", "Implantació avançada d'aplicacions web", 150, 4),
-    (25, 'M10 - Administració de sistemes gestors de bases de dades (ASIX2)', 'Administració avançada de sistemes gestors de bases de dades', 140, 4);
-
--- INSERTS MODULS (SMX1)
-INSERT INTO tbl_moduls
-    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs)
-VALUES
-    (26, 'M1 - Muntatge (SMX1)', "Muntatge avançat d'equips informàtics", 100, 1),
-    (27, 'M2 - Sistemes operatius (SMX1)', 'Administració avançada de sistemes operatius', 120, 1),
-    (28, 'M3 - Ofimàtica (SMX1)', "Aplicació avançada d'eines d'oficina", 90, 1),
-    (29, 'M5 - Xarxes (SMX1)', "Configuració avançada de xarxes d'ordinadors", 110, 1),
-    (30, 'M6 - Seguretat (SMX1)', 'Principis avançats de seguretat informàtica', 130, 1);
-
--- INSERTS MODULS (No Tutor)
-INSERT INTO tbl_moduls
-    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs)
-VALUES
-    (31, 'M13 - Tutoria (Tutor)', "Tutoria", 100, 6);
-
--- INSERTS MODULS (SMX2)
-INSERT INTO tbl_moduls
-    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs)
-VALUES
-    (32, 'M4 - Sistemes operatius en xarxa (SMX2)', 'Administració avançada de sistemes operatius en xarxa', 120, 2),
-    (33, 'M6 - Seguretat informàtica (SMX2)', 'Seguretat informàtica avançada', 140, 2),
-    (34, 'M7 - Serveis en xarxa (SMX2)', 'Serveis avançats en xarxa', 130, 2),
-    (35, 'M8 - Aplicacions web (SMX2)', "Desenvolupament avançat d'aplicacions web", 150, 2),
-    (36, 'M11 - Anglès (SMX2)', 'Anglès avançat per a informàtica', 90, 2);
+    (5, 'DAW2', "Desenvolupament d'Aplicacions Web", 'Tarda', 30, NULL, NULL);
 
 -- INSERTS PROFESSORS
 INSERT INTO tbl_professors 
-    (DNI_professor, Nom_professor, Primer_Cognom_professor, Segon_Cognom_professor, Telefon_professor, Correu_professor, Sexe_professor, Curs_assignat, Carrec_professor, FK_Modul_professors)
+    (DNI_professor, Nom_professor, Primer_Cognom_professor, Segon_Cognom_professor, Telefon_professor, Correu_professor, Sexe_professor, Cursos_assignats, Carrec_professor, Tutor_assignat)
 VALUES
-    ('49490191X', 'Gerard', 'Orobitg', 'Boyer', '654829112', 'gerard.orobitg@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', 'Profe/Cap Dept',''),
-    ('54878965D', 'Nuria', 'Garres', 'Gonzalez', '653587876', 'nuria.garres@oxon.com', 'Dona', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', ''),
-    ('12578445F', 'Sergio', 'Velasco', 'Rodríguez', '665600608', 'sergio.velasco@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', 'Profe','M1 - Muntatge (SMX1)'),
-    ('66978452R', 'Pedro', 'Blanco', 'Andrés', '656536159', 'pedro.blanco@oxon.com', 'Home', 'SMX1/SMX2/ASIX2', 'Profe','M1 - Muntatge (SMX1)'),
-    ('41203698U', 'Alberto', 'De Santos', 'Ontoria', '661593612', 'alberto.desantos@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','M1 - Muntatge (SMX1)'),
-    ('66676854Z', 'Fatima', 'Martínez', 'Macías', '666667771', 'fatima.macias@oxon.com', 'Dona', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','M1 - Muntatge (SMX1)'),
-    ('36552114O', 'Alejandro', 'Rueda', 'Santos', '693673624', 'alejandro.rueda@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','M1 - Muntatge (SMX1)'),
-    ('74589665L', 'Ágnes', 'Plans', 'Berenguer', '654499212', 'agnes.plans@oxon.com', 'Dona', 'SMX1/ASIX1-DAW1/ASIX2', 'Profe','M1 - Muntatge (SMX1)'),
-    ('18745998J', 'Alex', 'Perez', 'Mielgo', '612615613', 'alex.perez@oxon.com', 'Home', 'SMX1/SMX2', 'Profe','M1 - Muntatge (SMX1)');
+    ('49490191X', 'Gerard', 'Orobitg', 'Boyer', '654829112', 'gerard.orobitg@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', 'Profe/Cap Dept', 'ASIX1/DAW1'),
+    ('54878965D', 'Nuria', 'Garres', 'Gonzalez', '653587876', 'nuria.garres@oxon.com', 'Dona', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', 'Profe', 'ASIX2'),
+    ('12578445F', 'Sergio', 'Velasco', 'Rodríguez', '665600608', 'sergio.velasco@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', 'Profe','No es tutor'),
+    ('66978452R', 'Pedro', 'Blanco', 'Andrés', '656536159', 'pedro.blanco@oxon.com', 'Home', 'SMX1/SMX2/ASIX2', 'Profe','SMX1'),
+    ('41203698U', 'Alberto', 'De Santos', 'Ontoria', '661593612', 'alberto.desantos@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','DAW2'),
+    ('66676854Z', 'Fatima', 'Martínez', 'Macías', '666667771', 'fatima.macias@oxon.com', 'Dona', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','No es tutor'),
+    ('36552114O', 'Alejandro', 'Rueda', 'Santos', '693673624', 'alejandro.rueda@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','No es tutor'),
+    ('74589665L', 'Ágnes', 'Plans', 'Berenguer', '654499212', 'agnes.plans@oxon.com', 'Dona', 'SMX1/ASIX1-DAW1/ASIX2', 'Profe','No es tutor'),
+    ('18745998J', 'Alex', 'Perez', 'Mielgo', '612615613', 'alex.perez@oxon.com', 'Home', 'SMX1/SMX2', 'Profe','SMX2');
+
+-- INSERTS MODULS (ASIX1/DAW1)
+INSERT INTO tbl_moduls
+    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs, FK_DNI_professor)
+VALUES
+    (1, 'M1 - Sistemes operatius (ASIX1/DAW1)', 'Introducció als sistemes operatius', 100, 3, '12578445F'),
+    (2, 'M2 - Bases de dades (ASIX1/DAW1)', 'Fonaments de bases de dades relacionals', 120, 3, '49490191X'),
+    (3, 'M3 - Programació bàsica (ASIX1/DAW1)', 'Principis bàsics de programació', 80, 3, '66676854Z'),
+    (4, 'M4 - Disseny XML (ASIX1/DAW1)', 'Disseny de documents XML', 60, 3, '41203698U'),
+    (5, 'M5 - Entorn (ASIX1/DAW1)', "Configuració d'entorns de desenvolupament", 90, 3, '36552114O'),
+    (6, 'M7 - Xarxes (ASIX1/DAW1)', "Conceptes bàsics de xarxes d'ordinadors", 110, 3, '54878965D');
+
+-- INSERTS MODULS (DAW2)
+INSERT INTO tbl_moduls
+    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs, FK_DNI_professor)
+VALUES
+    (7, 'M1 - Sistemes Informàtics (DAW2)', 'Sistemes informàtics avançats', 120, 5, '74589665L'),
+    (8, 'M2 - Bases de dades (DAW2)', 'Disseny avançat de bases de dades', 130, 5, '74589665L'),
+    (9, 'M3 - Programació bàsica (DAW2)', 'Programació avançada en diversos llenguatges', 90, 5, '66676854Z'),
+    (10, "M4 - Llenguatge de marques i sistemes de gestió d'informació (DAW2)", "Gestió avançada de sistemes d'informació", 110, 5, '41203698U'),
+    (11, 'M5 - Entorns de desenvolupament (DAW2)', "Desenvolupament avançat d'entorns de programari", 120, 5, '66676854Z'),
+    (12, 'M6 - Desenvolupament web en entorn client (DAW2)', 'Desenvolupament avançat de JavaScript', 120, 5, '66676854Z'),
+    (13, 'M7 - Desenvolupament web en entorn servidor (DAW2)', "Desenvolupament d'aplicacions web en entorns de servidor", 150, 5, '41203698U'),
+    (14, "M8 - Desplegament d'aplicacions web (DAW2)", "Desplegament avançat d'aplicacions web", 130, 5, '74589665L'),
+    (15, "M9 - Disseny d'interfícies web (DAW2)", "Disseny avançat d'interfícies d'usuari", 100, 5, '36552114O');
+
+-- INSERTS MODULS (ASIX2)
+INSERT INTO tbl_moduls
+    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs, FK_DNI_professor)
+VALUES
+    (16, 'M1 - Implantació de sistemes operatius (ASIX2)', 'Implantació avançada de sistemes operatius', 110, 4, '12578445F'),
+    (17, 'M2 - Gestió de bases de dades (ASIX2)', 'Gestió avançada de bases de dades', 130, 4, '49490191X'),
+    (18, 'M3 - Programació bàsica (ASIX2)', 'Programació avançada en diferents àmbits', 100, 4, '41203698U'),
+    (19, "M4 - Llenguatges de marques i sistemes de gestió d'informació (ASIX2)", "Gestió avançada de sistemes d'informació", 120, 4, '49490191X'),
+    (20, 'M5 - Fonaments de maquinari (ASIX2)', 'Conceptes avançats de maquinari', 90, 4, '49490191X'),
+    (21, 'M6 - Administració de sistemes operatius (ASIX2)', 'Administració avançada de sistemes operatius', 130, 4, '12578445F'),
+    (22, 'M7 - Planificació i administració de xarxes (ASIX2)', 'Planificació i administració avançada de xarxes', 140, 4, '54878965D'),
+    (23, 'M8 - Serveis de xarxa i internet (ASIX2)', 'Serveis avançats de xarxa i internet', 120, 4, '66978452R'),
+    (24, "M9 - Implantació d'aplicacions web (ASIX2)", "Implantació avançada d'aplicacions web", 150, 4, '41203698U'),
+    (25, 'M10 - Administració de sistemes gestors de bases de dades (ASIX2)', 'Administració avançada de sistemes gestors de bases de dades', 140, 4, '49490191X');
+
+-- INSERTS MODULS (SMX1)
+INSERT INTO tbl_moduls
+    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs, FK_DNI_professor)
+VALUES
+    (26, 'M1 - Muntatge (SMX1)', "Muntatge avançat d'equips informàtics", 100, 1, '66978452R'),
+    (27, 'M2 - Sistemes operatius (SMX1)', 'Administració avançada de sistemes operatius', 120, 1, '12578445F'),
+    (28, 'M3 - Ofimàtica (SMX1)', "Aplicació avançada d'eines d'oficina", 90, 1, '18745998J'),
+    (29, 'M5 - Xarxes (SMX1)', "Configuració avançada de xarxes d'ordinadors", 110, 1, '54878965D'),
+    (30, 'M6 - Seguretat (SMX1)', 'Principis avançats de seguretat informàtica', 130, 1, '49490191X');
+
+-- INSERTS MODULS (SMX2)
+INSERT INTO tbl_moduls
+    (ID_modul, Nom_modul, Desc_modul, Hores_modul, FK_ID_Curs, FK_DNI_professor)
+VALUES
+    (32, 'M4 - Sistemes operatius en xarxa (SMX2)', 'Administració avançada de sistemes operatius en xarxa', 120, 2, '54878965D'),
+    (33, 'M6 - Seguretat informàtica (SMX2)', 'Seguretat informàtica avançada', 140, 2, '12578445F'),
+    (34, 'M7 - Serveis en xarxa (SMX2)', 'Serveis avançats en xarxa', 130, 2, '66978452R'),
+    (35, 'M8 - Aplicacions web (SMX2)', "Desenvolupament avançat d'aplicacions web", 150, 2, '41203698U'),
+    (36, 'M11 - Anglès (SMX2)', 'Anglès avançat per a informàtica', 90, 2, '18745998J');
 
 -- INSERTS 120 ALUMNES
 

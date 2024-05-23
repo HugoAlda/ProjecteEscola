@@ -1,66 +1,66 @@
-function validanombre() {
+function validaMatricula() {
+    let valor1 = document.getElementById("Matricula_Alumne").value;
+    if(valor3 == null || valor3.length === 0) {}
+    
+}
+
+
+
+function validaNombre() {
     let valor1 = document.getElementById("Nom_Alumne" || "Nom_Professor").value;
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
-        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo hagas cosas raras con espacios";
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo hagas con espacios";
     } else if (!isNaN(valor1)) {
-        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no escribas numeros hombreee, eres tonto? solo tu nombre macho nada mas";
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, el campo no puede ser un numero.";
     } else {
         document.getElementById("error_nom").innerHTML = "";
     }
 }
-function validaapellido1() {
+function validaApellido1() {
     let valor1 = document.getElementById("Primer_Cognom_Alumne").value;
     if (valor1 == null || valor1.length == 0 ) {
-        document.getElementById("error_cognom1").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
-        document.getElementById("error_cognom1").innerHTML = "Introduce tu nombre, no lo hagas cosas raras con espacios";
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo hagas con espacios";
     } else if (!isNaN(valor1)) {
-        document.getElementById("error_cognom1").innerHTML = "Introduce tu nombre, no escribas numeros hombreee, eres tonto? solo tu nombre macho nada mas";
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, el campo no puede ser un numero.";
     } else {
         document.getElementById("error_cognom1").innerHTML = "";
     }
 }
-function validaapellido2() {
+function validaApellido2() {
     let valor1 = document.getElementById("Segon_Cognom_Alumne").value;
     if (valor1 == null || valor1.length == 0 ) {
-        document.getElementById("error_cognom2").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
-        document.getElementById("error_cognom2").innerHTML = "Introduce tu nombre, no lo hagas cosas raras con espacios";
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo hagas con espacios";
     } else if (!isNaN(valor1)) {
-        document.getElementById("error_cognom2").innerHTML = "Introduce tu nombre, no escribas numeros hombreee, eres tonto? solo tu nombre macho nada mas";
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, el campo no puede ser un numero.";
     } else {
         document.getElementById("error_cognom2").innerHTML = "";
     }
 }
-function validaedad() {
-    let valor2 = document.getElementById("edad").value;
-    if (valor2 == null || valor2.length == 0 ) {
-        document.getElementById("error_edad").innerHTML = "Introduce tu edad, no lo puedes dejar vacío";
-    }else if (/^\s+$/.test(valor2)) {
-        document.getElementById("error_edad").innerHTML = "Introduce tu edad, no lo dejes espacios";
-    } else if (isNaN(valor2)) {
-        document.getElementById("error_edad").innerHTML = "Introduce un número válido para la edad";
-    } else if (valor2 < 17) {
-        document.getElementById("error_edad").innerHTML = "Para poder acceder debes tener al menos 17 años";
+function validaTelf() {
+    let valor6 = document.getElementById("telefono").value;
+    if (valor6 == null || valor6.length == 0) {
+        document.getElementById("error_telf").innerHTML = "El numero de telefono no puede estar vacio";
+    } else if (!(/^\d{9}$/.test(valor6)) &&
+        !(/^\d{3}-\d{3}-\d{3}$/.test(valor6)) &&
+        !(/^\d{3}\s\d{6}$/.test(valor6)) &&
+        !(/^\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(valor6)) &&
+        !(/^\(\d{3}\)\s\d{6}$/.test(valor6)) &&
+        !(/^\+\d{2,3}\s\d{9}$/.test(valor6))) {
+        document.getElementById("error_telf").innerHTML = "El número de teléfono debe ser válido";
     } else {
-        document.getElementById("error_edad").innerHTML = "";
+        document.getElementById("error_telf").innerHTML = "";
     }
 }
 
 
-function validaopciones() {
-    let indice = document.getElementById("opciones").selectedIndex;
-    if (indice == null || indice == 0) {
-        document.getElementById("error_opciones").innerHTML = "No puedes dejar el campo vacio";
-    } else {
-        document.getElementById("error_opciones").innerHTML = "";
-    }
-}
-
-function validaemail() {
-    let valor3 = document.getElementById("email").value;
+function validaEmail() {
+    let valor3 = document.getElementById("Correu_Alumne").value;
     if(valor3 == null || valor3.length === 0) {
         document.getElementById("error_email").innerHTML = "Introduce tu dirección de correo electrónico, no la puedes dejar vacía";
     }else if (!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor3))) {
@@ -69,20 +69,40 @@ function validaemail() {
         document.getElementById("error_email").innerHTML = "";
     }
 }
-function validarFechaNacimiento() {
-    let ano = parseInt(document.getElementById("ano").value);
-    let mes = parseInt(document.getElementById("mes").value) - 1; // Resta 1 porque los meses van de 0 a 11
-    let dia = parseInt(document.getElementById("dia").value);
 
-    let valor = new Date(ano, mes, dia);
-
-    if (isNaN(valor)) {
-        document.getElementById("error_fecha_nacimiento").innerText = "La fecha de nacimiento no es válida.";
-        return false;
+function validaOpcionesCurso() {
+    let indice = document.getElementById("FK_ID_curs").selectedIndex;
+    if (indice == null || indice == 0) {
+        document.getElementById("error_opcion_curso").innerHTML = "No puedes dejar el campo vacio";
+    } else {
+        document.getElementById("error_opcion_curso").innerHTML = "";
     }
-    document.getElementById("error_fecha_nacimiento").innerText = "";
-    return true;
 }
+
+function validaOpcionesSexo() {
+    let indice = document.getElementById("Sexe_Alumne").selectedIndex;
+    if (indice == null || indice == 0) {
+        document.getElementById("error_opcion_sexo").innerHTML = "No puedes dejar el campo vacio";
+    } else {
+        document.getElementById("error_opcion_sexo").innerHTML = "";
+    }
+}
+
+
+// function validarFechaNacimiento() {
+//     let ano = parseInt(document.getElementById("ano").value);
+//     let mes = parseInt(document.getElementById("mes").value) - 1; // Resta 1 porque los meses van de 0 a 11
+//     let dia = parseInt(document.getElementById("dia").value);
+
+//     let valor = new Date(ano, mes, dia);
+
+//     if (isNaN(valor)) {
+//         document.getElementById("error_fecha_nacimiento").innerText = "La fecha de nacimiento no es válida.";
+//         return false;
+//     }
+//     document.getElementById("error_fecha_nacimiento").innerText = "";
+//     return true;
+// }
 
 // function validarFechaNacimiento() {
 //     var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
@@ -107,24 +127,8 @@ function validarFechaNacimiento() {
 // }
 
 
-function validatelefono() {
-    let valor6 = document.getElementById("telefono").value;
-    if (valor6 == null || valor6.length == 0) {
-        document.getElementById("error_telefono").innerHTML = "El numero de telefono no puede estar vacio";
-    } else if (!(/^\d{9}$/.test(valor6)) &&
-        !(/^\d{3}-\d{3}-\d{3}$/.test(valor6)) &&
-        !(/^\d{3}\s\d{6}$/.test(valor6)) &&
-        !(/^\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(valor6)) &&
-        !(/^\(\d{3}\)\s\d{6}$/.test(valor6)) &&
-        !(/^\+\d{2,3}\s\d{9}$/.test(valor6))) {
-        document.getElementById("error_telefono").innerHTML = "El número de teléfono debe ser válido";
-    } else {
-        document.getElementById("error_telefono").innerHTML = "";
-    }
-}
-
 function validaDNI() {
-    var valor7 = document.getElementById("dni").value;
+    var valor7 = document.getElementById("DNI_Alumne").value;
     var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
     if (valor7.length == 0 || valor7 == null) {

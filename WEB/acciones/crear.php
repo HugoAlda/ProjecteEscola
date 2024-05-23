@@ -8,7 +8,7 @@ $Segon_cognom=$_POST['Segon_Cognom_Alumne'];
 $tel=$_POST['Telefon_Alumne'];
 $correu=$_POST['Correu_Alumne'];
 $sexe=$_POST['Sexe_Alumne'];
-$FK=$_POST['FK_Curs'];
+$FK=$_POST['FK_ID_Curs'];
 try {
     // Asegurarse de que la conexión a la base de datos se haya establecido correctamente
     if ($conn === null) {

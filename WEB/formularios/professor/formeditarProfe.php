@@ -55,30 +55,31 @@ if (!isset($_GET['DNI'])){
             <option value="No binari" <?php echo ($array[6] == 'No binari') ? 'selected' : ''; ?>>No binari</option>
         </select>
         <br><br>
-        <label for="Assignacio_Tutor">Assignació Tutor</label><br>
-        <select id="Assignacio_Tutor" name="Assignacio_Tutor" class="selectform" required>
-            <option value="3" <?php echo ($array[7] == '3') ? 'selected' : ''; ?>>ASIX/DAW1</option>
-            <option value="4" <?php echo ($array[7] == '4') ? 'selected' : ''; ?>>ASIX2</option>
-            <option value="5" <?php echo ($array[7] == '5') ? 'selected' : ''; ?>>DAW2</option>
-            <option value="1" <?php echo ($array[7] == '1') ? 'selected' : ''; ?>>SMX1</option>
-            <option value="2" <?php echo ($array[7] == '2') ? 'selected' : ''; ?>>SMX2</option>
-            <option value="6" <?php echo ($array[7] == '6') ? 'selected' : ''; ?>>No es tutor</option>
-        </select>
-        <br><br>
         <label for="Curs_Assignat">Curs Assignat</label><br>
-        <input type="text" id="Curs_Assignat" name="Curs_Assignat" value="<?php echo $array[8]?>"><br><br>
-        <label for="Carrec_Professor">Carrec Professor</label><br>
+        <input type="text" id="Curs_Assignat" name="Cursos_assignats" value="<?php echo $array[7]?>"><br><br>
+        <label for="Carrec_Professor">Carrec Professor</label>
+        <br>
         <select id="Carrec_Professor" name="Carrec_Professor" class="selectform" required>
-            <option value="Profe" <?php echo ($array[9] == 'Profe') ? 'selected' : ''; ?>>Profe</option>
-            <option value="Cap Departament" <?php echo ($array[9] == 'Cap Departament') ? 'selected' : ''; ?>>Cap Departament</option>
-            <option value="Profe/Cap Dept" <?php echo ($array[9] == 'Profe/Cap Dept') ? 'selected' : ''; ?>>Profe/Cap Dept</option>
+            <option value="Profe" <?php echo ($array[8] == 'Profe') ? 'selected' : ''; ?>>Profe</option>
+            <option value="Cap Departament" <?php echo ($array[8] == 'Cap Departament') ? 'selected' : ''; ?>>Cap Departament</option>
+            <option value="Profe/Cap Dept" <?php echo ($array[8] == 'Profe/Cap Dept') ? 'selected' : ''; ?>>Profe/Cap Dept</option>
         </select>
         <br><br>
-        <label for="">uno mas</label>
-        <select id="Modul_Professor" name="Modul_Professor" class="selectform" required>
-            <option value="1" >ASIX/DAW1</option>
-           <!-- segui aqui mañana -->
+        <label for="Tutor_assignat">Tutor_assignat</label><br>
+        <select id="Tutor_assignat" name="Tutor_assignat" class="selectform" required>
+            <option value="3" <?php echo ($array[9] == '3') ? 'selected' : ''; ?>>ASIX/DAW1</option>
+            <option value="4" <?php echo ($array[9] == '4') ? 'selected' : ''; ?>>ASIX2</option>
+            <option value="5" <?php echo ($array[9] == '5') ? 'selected' : ''; ?>>DAW2</option>
+            <option value="1" <?php echo ($array[9] == '1') ? 'selected' : ''; ?>>SMX1</option>
+            <option value="2" <?php echo ($array[9] == '2') ? 'selected' : ''; ?>>SMX2</option>
+            <option value="6" <?php echo ($array[9] == '6') ? 'selected' : ''; ?>>No es tutor</option>
         </select>
+        <br><br>
+        
+        
+       
+            
+      
         <input type="submit" value="Guardar Cambios" class="button_form">
     </form><br><br>
 </body>

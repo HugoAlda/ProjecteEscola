@@ -2,6 +2,17 @@
     font-size: 10px;
 }
 
+header > img{
+    width: auto;
+}
+header{
+    background-color: #232128;
+    text-align: center;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+}
+
 img {
     width: 3%;
 }
@@ -354,4 +365,6 @@ form button[type="submit"]:hover {
 #minilogoiniciosesion {
     display: block;
     margin: 0 auto;
+    height: 10em;
+    width: auto;
 }
