@@ -7,7 +7,7 @@ body{
 }
 
 header{
-    /* background-color: #232128; */
+    background-color: #232128;
     text-align: center;
     margin: 0;
     position: fixed;
@@ -17,7 +17,7 @@ header{
 /* Estilos generales */
 .CRUD {
     font-family: Arial, sans-serif;
-    /* background-color: #232128; */
+    background-color: #232128;
 }
 
 .container {
@@ -30,7 +30,7 @@ header{
 
 .contenedor {
     width: 100vw;
-    max-width: 86vw;
+    max-width: 88vw;
     margin: 0 auto;
     padding: 20px;
 }
