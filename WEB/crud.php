@@ -2,6 +2,35 @@
 
 require_once 'conexion.php';
 
+if (isset($_GET['query']) && !empty($_GET['query'])) {
+    $query = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_STRING);
+    
+    try {
+        // Preparar la consulta SQL para buscar en la base de datos
+        $stmt = $conn->prepare("SELECT * FROM tbl_professors WHERE 
+                                DNI_professor LIKE :query OR 
+                                nombre LIKE :query OR 
+                                apellido LIKE :query");
+
+        // Agregar comodines para la búsqueda
+        $query = '%' . $query . '%';
+
+        // Bindear el parámetro
+        $stmt->bindParam(':query', $query, PDO::PARAM_STR);
+        
+        // Ejecutar la consulta
+        $stmt->execute();
+
+        // Obtener los resultados
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log('Error de base de datos: ' . $e->getMessage());
+        $results = [];
+    }
+} else {
+    $results = [];
+}
+
 try {
     // Inicializa la variable $resultados para evitar errores de advertencia
     $resultados = [];
@@ -191,26 +220,31 @@ try {
     <title>CRUD ALUMNES</title>
 </head>
 <header>
-    <img src="./img/logoextendido.png" alt="">
+    <img src="./img/logoextendido.png">
 </header>
 <body class="CRUD">
-    <br>
+    <br><br><br><br>
     <div class="contenedor">
         <br>
-        <div class="separacambioprofe">
-            <h2>CRUD ALUMNES</h2>
-            <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
-        </div>
         <div class="create-button">
-                <nav>
+            <nav>
                 <div>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" role="search" method="GET" action="search.php">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
-                        <a class="button_c" href="formularios/alumne/formcrearAlumne.php">Crear</a>
                     </form>
                 </div>
             </nav>
+
+        </div>
+        <div class="cambiar-añadir">
+            <div class='image-container' id="cruz">
+                <a href="./formularios/alumne/formcrearAlumne.php">
+                    <img src='./img/square-plus-solid.png' alt='Imagen Default' class='image image-default'>
+                    <img src='./img/square-plus-solid-green.png' alt='Imagen Default' class='image image-hover'>
+                </a>
+            </div>
+            <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
         </div>
     </div>
     <div class="container">
@@ -218,15 +252,15 @@ try {
             <form action="" method="post">
                 <thead class="thead">
                     <tr>
-                        <th><input type="submit" value="⬆" name="Matricula_asc">Matricula<input type="submit" value="⬇" name="Matricula_desc"></th>
-                        <th><input type="submit" value="⬆" name="DNI_asc">DNI<input type="submit" value="⬇" name="DNI_desc"></th>
-                        <th><input type="submit" value="⬆" name="Nom_alumnes_asc">Nom<input type="submit" value="⬇" name="Nom_alumnes_desc"></th>
-                        <th><input type="submit" value="⬆" name="Primer_cognom_alumne_asc">Primer Cognom<input type="submit" value="⬇" name="Primer_cognom_alumne_desc"></th>
-                        <th><input type="submit" value="⬆" name="Segon_cognom_alumne_asc">Segon Cognom<input type="submit" value="⬇" name="Segon_cognom_alumne_desc"></th>
-                        <th><input type="submit" value="⬆" name="Telefon_alumne_asc">Teléfon<input type="submit" value="⬇" name="Telefon_alumne_desc"></th>
-                        <th><input type="submit" value="⬆" name="Correu_alumne_asc">Correu<input type="submit" value="⬇" name="Correu_alumne_desc"></th>
-                        <th><input type="submit" value="⬆" name="Curs_alumne_asc">Curs<input type="submit" value="⬇" name="Curs_alumne_desc"></th>
-                        <th><input type="submit" value="⬆" name="Sexe_alumne_asc">Sexe<input type="submit" value="⬇" name="Sexe_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Matricula<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="DNI_asc">DNI<input type="submit" value="⬇" id="flecha_derecha" name="DNI_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Nom_alumnes_asc">Nom<input type="submit" value="⬇" id="flecha_derecha" name="Nom_alumnes_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Primer_cognom_alumne_asc">Primer Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Primer_cognom_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Segon_cognom_alumne_asc">Segon Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Segon_cognom_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Telefon_alumne_asc">Teléfon<input type="submit" value="⬇" id="flecha_derecha" name="Telefon_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Correu_alumne_asc">Correu<input type="submit" value="⬇" id="flecha_derecha" name="Correu_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Curs_alumne_asc">Curs<input type="submit" value="⬇" id="flecha_derecha" name="Curs_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Sexe_alumne_asc">Sexe<input type="submit" value="⬇" id="flecha_derecha" name="Sexe_alumne_desc"></th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

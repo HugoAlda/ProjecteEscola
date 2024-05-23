@@ -4,11 +4,10 @@
 
 body{
     margin: 0%;
-
 }
 
 header{
-    background-color: #232128;
+    /* background-color: #232128; */
     text-align: center;
     margin: 0;
     position: fixed;
@@ -18,20 +17,20 @@ header{
 /* Estilos generales */
 .CRUD {
     font-family: Arial, sans-serif;
+    /* background-color: #232128; */
 }
-
 
 .container {
     width: 100vw;
-    max-width: 80vw;
-    max-height: 63vh;
+    max-width: 85vw;
+    max-height: 58vh;
     background-color: #fff;
     overflow-y: auto;
 }
 
 .contenedor {
     width: 100vw;
-    max-width: 82vw;
+    max-width: 86vw;
     margin: 0 auto;
     padding: 20px;
 }
@@ -39,6 +38,18 @@ header{
 .LOGIN {
     font-family: Arial, sans-serif;
     background-color: rgb(35, 33, 40);
+}
+
+.cambiar-añadir {
+    text-align: right;
+}
+
+#flecha_izquierda{
+    margin-right: 5px;
+}
+
+#flecha_derecha{
+    margin-left: 5px;
 }
 
 h1 {
@@ -180,11 +191,13 @@ th {
     border: 2px solid green;
     border-radius: 5px;
     margin-left: 5px;
+    z-index: 9999; /* Asegura que la imagen esté encima de otros elementos */
 }
 
 .button_c:hover {
     background-color: green;
     color: white;
+    cursor: pointer;
 }
 
 .button_e {
@@ -255,6 +268,10 @@ form input[type="submit"]:hover {
     border: 1px solid black;
 }
 
+#cruz {
+    margin-right: 20px;
+}
+
 .image-container {
     position: relative;
     display: inline-block;
@@ -271,6 +288,7 @@ form input[type="submit"]:hover {
 
 .image-hover {
     opacity: 0;
+    cursor: pointer;
 }
 
 .image-container:hover .image-hover {
