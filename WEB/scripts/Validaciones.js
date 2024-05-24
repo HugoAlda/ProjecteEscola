@@ -51,23 +51,7 @@ function validaApellido2() {
     }
 }
 
-// function validaTelf() {
-//     let valor6 = document.getElementById("Telefon_Alumne" || "Telefon_Professor").value;
-//     if (valor6 == null || valor6.length == 0) {
-//         document.getElementById("error_telf").innerHTML = "El numero de telefono no puede estar vacio";
-//     } else if (!(/^\d{9}$/.test(valor6)) &&
-//         !(/^\d{3}-\d{3}-\d{3}$/.test(valor6)) &&
-//         !(/^\d{3}\s\d{6}$/.test(valor6)) &&
-//         !(/^\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(valor6)) &&
-//         !(/^\(\d{3}\)\s\d{6}$/.test(valor6)) &&
-//         !(/^\+\d{2,3}\s\d{9}$/.test(valor6))) {
-//         document.getElementById("error_telf").innerHTML = "El número de teléfono debe ser válido";
-//     } else {
-//         document.getElementById("error_telf").innerHTML = "";
-//     }
-// }
-
-function validarTelf() {
+function validaTelf() {
     let valor = document.getElementById("Telefon_Alumne").value;
 
     if (valor == null || valor.length == 0) {
@@ -98,9 +82,9 @@ function validaEmail() {
 }
 
 function validaOpcionesCurso() {
-    let indice = document.getElementById("FK_ID_curs").selectedIndex;
+    let indice = document.getElementById("FK_ID_Curs").selectedIndex;
     if (indice == null || indice == 0) {
-        document.getElementById("error_opcion_curso").innerHTML = "No puedes dejar el campo vacio";
+        document.getElementById("error_opcion_curso").innerHTML = "No puedes dejar el campo vacío";
         return false;
     } else {
         document.getElementById("error_opcion_curso").innerHTML = "";
@@ -142,7 +126,7 @@ function validaNombreProfe() {
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
-        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo hagas con espacios";
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no dejes solo espacios";
     } else if (!isNaN(valor1)) {
         document.getElementById("error_nom").innerHTML = "Introduce tu nombre, el campo no puede ser un numero.";
     } else {
@@ -155,7 +139,7 @@ function validaApellido1Profe() {
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
-        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo hagas con espacios";
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no dejes solo espacios";
     } else if (!isNaN(valor1)) {
         document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, el campo no puede ser un numero.";
     } else {
@@ -169,7 +153,7 @@ function validaApellido2Profe() {
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
-        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo hagas con espacios";
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no dejes solo espacios";
     } else if (!isNaN(valor1)) {
         document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, el campo no puede ser un numero.";
     } else {
@@ -177,7 +161,7 @@ function validaApellido2Profe() {
     }
 }
 
-function validarTelfProfe() {
+function validaTelfProfe() {
     let valor = document.getElementById("Telefon_Professor");
 
     if (valor == null || valor.length == 0) {
@@ -231,5 +215,36 @@ function validaDNIProfe() {
         } else {
             document.getElementById("error_dni").innerHTML = "";
         }
+    }
+}
+
+function validaCursosAsignadosProfe(){
+    var valor = document.getElementById("Cursos_assignats").value;
+    if (valor == null || valor.length == 0 ) {
+        document.getElementById("error_cursos").innerHTML = "No puedes dejar el campo vacío";
+    } else if (/^\s+$/.test(valor)) {
+        document.getElementById("error_cursos").innerHTML = "No introduzcas solo espacios";
+    } else {
+        document.getElementById("error_cursos").innerHTML = "";
+    }
+}
+
+function validaCarrecProfe(){
+    var indice = document.getElementById("Carrec_Professor").value;
+    if (indice == null || indice == 0) {
+        document.getElementById("error_carrec").innerHTML = "No puedes dejar el campo vacio";
+        return false;
+    } else {
+        document.getElementById("error_opcion_sexo").innerHTML = "";
+    }
+}
+
+function validaTutorAssignatProfe(){
+    var indice = document.getElementById("Tutor_assignat").value;
+    if (indice == null || indice == 0) {
+        document.getElementById("error_tutor_assignat").innerHTML = "No puedes dejar el campo vacio";
+        return false;
+    } else {
+        document.getElementById("error_tutor_assignat").innerHTML = "";
     }
 }

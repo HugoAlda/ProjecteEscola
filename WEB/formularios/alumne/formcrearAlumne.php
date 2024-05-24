@@ -49,7 +49,7 @@
         <br>
         <label for="Telefon_Alumne">Telèfon Alumne</label>
         <br>
-        <input onmouseleave="validaTelf()" type="tel" id="Telefon_Alumne" name="Telefon_Alumne" required>
+        <input onmouseleave="validaTelf()" type="tel" id="Telefon_Alumne" name="Telefon_Alumne" placeholder="Introducir telefono 9 Numeros" maxlength="9" required>
         <p class="errors" id="error_telf"></p>
         <br>
         <label for="Correu_Alumne">Correu Alumne</label>

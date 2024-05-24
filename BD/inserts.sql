@@ -16,11 +16,12 @@ VALUES
     ('54878965D', 'Nuria', 'Garres', 'Gonzalez', '653587876', 'nuria.garres@oxon.com', 'Dona', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', 'Profe', 'ASIX2'),
     ('12578445F', 'Sergio', 'Velasco', 'Rodríguez', '665600608', 'sergio.velasco@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2', 'Profe','No es tutor'),
     ('66978452R', 'Pedro', 'Blanco', 'Andrés', '656536159', 'pedro.blanco@oxon.com', 'Home', 'SMX1/SMX2/ASIX2', 'Profe','SMX1'),
-    ('41203698U', 'Alberto', 'De Santos', 'Ontoria', '661593612', 'alberto.desantos@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','DAW2'),
+    ('41203698U', 'Alberto', 'De Santos', 'Ontoria', '661593612', 'alberto.desantos@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','No es tutor'),
     ('66676854Z', 'Fatima', 'Martínez', 'Macías', '666667771', 'fatima.macias@oxon.com', 'Dona', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','No es tutor'),
     ('36552114O', 'Alejandro', 'Rueda', 'Santos', '693673624', 'alejandro.rueda@oxon.com', 'Home', 'SMX1/SMX2/ASIX1-DAW1/ASIX2/DAW2', 'Profe','No es tutor'),
     ('74589665L', 'Ágnes', 'Plans', 'Berenguer', '654499212', 'agnes.plans@oxon.com', 'Dona', 'SMX1/ASIX1-DAW1/ASIX2', 'Profe','No es tutor'),
-    ('18745998J', 'Alex', 'Perez', 'Mielgo', '612615613', 'alex.perez@oxon.com', 'Home', 'SMX1/SMX2', 'Profe','SMX2');
+    ('18745998J', 'Alex', 'Perez', 'Mielgo', '612615613', 'alex.perez@oxon.com', 'Home', 'SMX1/SMX2', 'Profe','SMX2'),
+    ('46481413T', 'Hugo', 'Alda', 'Cárdenas', '615449359', 'hugo.alda@oxon.com', 'Home', 'ASIX1/DAW1/DAW2', 'Profe/Cap Dept','DAW2');
 
 -- INSERTS MODULS (ASIX1/DAW1)
 INSERT INTO tbl_moduls
