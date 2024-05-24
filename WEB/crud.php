@@ -266,7 +266,7 @@ $registros_totales = $consulta_total->fetchColumn();
                     <img src='./img/square-plus-solid-green.png' alt='Imagen Default' class='image image-hover'>
                 </a>
             </div>
-            <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
+            <a class="button_c" name="profes" href="./crud_profes.php">Cambiar a profes</a>
             <br><br>
             <?php
 
@@ -328,6 +328,6 @@ $registros_totales = $consulta_total->fetchColumn();
                     }
                 ?>
             </tbody>
-        </table>
+        </table> 
     </div>
 </body>

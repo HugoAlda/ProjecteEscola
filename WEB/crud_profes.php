@@ -49,28 +49,28 @@ try {
         $contador_filtro->execute([':busqueda' => '%' . $busqueda . '%']);
         $total_registros_filtrados = $contador_filtro->fetchColumn();
 
-    } else if (isset($_POST['DNI_professor_asc'])) {
+    } else if (isset($_POST['DNI_asc'])) {
 
         $consulta = $conn->query("SELECT *
         FROM tbl_professors
         ORDER BY DNI_professor ASC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['DNI_professor_desc'])) {
+    } else if (isset($_POST['DNI_desc'])) {
 
         $consulta = $conn->query("SELECT *
         FROM tbl_professors
         ORDER BY DNI_professor DESC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['nom_professor_asc'])) {
+    } else if (isset($_POST['nom_asc'])) {
 
         $consulta = $conn->query("SELECT *
         FROM tbl_professors
         ORDER BY Nom_professor ASC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['nom_professor_desc'])) {
+    } else if (isset($_POST['nom_desc'])) {
 
         $consulta = $conn->query("SELECT *
         FROM tbl_professors
@@ -253,19 +253,19 @@ $registros_totales = $consulta_total->fetchColumn();
     </div>       
     <div class="container">
     <table>
-    <form action="">
+    <form action="" method="post">
         <thead class="thead">
             <tr>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">DNI<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Nom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">1r Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">2n Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Teléfon<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Correu<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Sexe<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Cursos<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Carrec<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Tutor<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="DNI_asc">DNI<input type="submit" value="⬇" id="flecha_derecha" name="DNI_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="nom_asc">Nom<input type="submit" value="⬇" id="flecha_derecha" name="nom_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="primer_cognom_asc">1r Cognom<input type="submit" value="⬇" id="flecha_derecha" name="primer_cognom_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="segon_cognom_asc">2n Cognom<input type="submit" value="⬇" id="flecha_derecha" name="segon_cognom_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="telefon_asc">Teléfon<input type="submit" value="⬇" id="flecha_derecha" name="telefon_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="correu_asc">Correu<input type="submit" value="⬇" id="flecha_derecha" name="correu_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="sexe_asc">Sexe<input type="submit" value="⬇" id="flecha_derecha" name="sexe_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="cursos_asc">Cursos<input type="submit" value="⬇" id="flecha_derecha" name="cursos_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="carrec_asc">Carrec<input type="submit" value="⬇" id="flecha_derecha" name="carrec_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="tutor_asc">Tutor<input type="submit" value="⬇" id="flecha_derecha" name="tutor_desc"></th>
                 <th>Acciones</th>
             </tr>
         </thead>

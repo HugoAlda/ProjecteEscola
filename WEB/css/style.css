@@ -1,3 +1,4 @@
+/* Part del codi tret de la pagina https://uiverse.io */
 * {
     font-size: 12px;
 }
@@ -201,7 +202,7 @@ th {
 
 .button_c {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px;
     text-decoration: none;
     color: #a47580;
     border: 2px solid #a47580;
@@ -314,9 +315,11 @@ form input[type="submit"]:hover {
 .image-container:hover .image-default {
     opacity: 0;
 }
+
 .errors{
     color: red;
 }
+
 .button_form{
     display: inline-block;
     padding: 10px 20px;
@@ -328,6 +331,57 @@ form input[type="submit"]:hover {
 
 .button_form:hover{
     background-color: #674950;
+}
+
+.inputContainer {   
+    position: relative;   
+    display: flex;   
+    flex-direction: column;   
+    gap: 10px; 
+    padding-left: 40vw;
+}  
+
+#inputField {   
+    border: 2px solid white;   
+    background-color: transparent;   
+    border-radius: 10px;   
+    padding: 12px 15px;   
+    color: black;   
+    font-weight: 500;   
+    outline: none;   
+    caret-color: rgb(155, 78, 255);   
+    transition-duration: .3s;   
+    font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; 
+}  
+
+.userIcon {   
+    position: absolute;   
+    fill: white;   
+    width: 12px;   
+    top: -25px;   
+    left: -15px;  
+    opacity: 1;
+    transition: .2s linear;
+    padding-left: 41.5vw;
+}
+
+.usernameLabel {   
+    position: absolute;   
+    top: -25px;   
+    left: 5px;   
+    color: white;   
+    font-size: 14px;   
+    font-weight: 400;   
+    font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;   
+    overflow: hidden;   
+    transition: .2s linear;   
+    opacity: 0; 
+    padding-left: 40vw;
+}
+
+#inputField:focus ~ .usernameLabel, #inputField:valid ~ .usernameLabel {   
+    transform: translateX(20px);   
+    opacity: 1;
 }
 
 /* Estilos específicos para pantallas pequeñas */
