@@ -34,7 +34,7 @@ try {
         $resultados = $consulta->fetchAll(); 
 
         $contador_filtro = $conn->prepare("
-            SELECT COUNT(alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs) 
+            SELECT COUNT(*) 
             FROM tbl_alumnes alu 
             INNER JOIN tbl_curs c 
             ON alu.FK_ID_curs = c.ID_curs 
@@ -46,11 +46,10 @@ try {
             OR alu.Telefon_alumne LIKE :busqueda 
             OR alu.Correu_alumne LIKE :busqueda 
             OR alu.Sexe_alumne LIKE :busqueda 
-            OR c.Nom_curs LIKE :busqueda
-            ORDER BY alu.Matricula_alumne ASC;
+            OR c.Nom_curs LIKE :busqueda;
         ");
         $contador_filtro->execute([':busqueda' => '%' . $busqueda . '%']);
-        $resultados_filtro = $contador_filtro->fetchAll();   
+        $total_registros_filtrados = $contador_filtro->fetchColumn();   
 
     }else if (isset($_POST['Matricula_asc'])) {
 
@@ -214,16 +213,6 @@ try {
         ORDER BY alu.Sexe_alumne DESC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['vuelta_registros'])){
-
-        // Vuelta a la consulta default
-        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
-        FROM tbl_alumnes alu 
-        INNER JOIN tbl_curs c 
-        ON alu.FK_ID_curs = c.ID_curs 
-        ORDER BY alu.Matricula_alumne ASC;");
-        $resultados = $consulta->fetchAll();
-
     } else {
         // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
@@ -264,7 +253,7 @@ $registros_totales = $consulta_total->fetchColumn();
                     <form class="d-flex" role="search" method="GET" action="">
                         <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Buscar">
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
-                        <button class="btn btn-outline-success" type="submit" id="registros" name="vuelta_registros">Registos</button>
+                        <a class="button_c" href="./crud.php">Registros</a>
                     </form>
                 </div>
             </nav>
@@ -278,12 +267,16 @@ $registros_totales = $consulta_total->fetchColumn();
                 </a>
             </div>
             <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
-            <!-- <form action="" method="post">
-                
-            </form> -->
             <br><br>
-            <h3>Total de registros: <?php echo $registros_totales;?></h3>
-            <h3>Total de registros: <?php echo $resultados_filtro;?></h3>
+            <?php
+
+                if (isset($_GET['query'])) {
+                    echo "<h3>Total de registros: $total_registros_filtrados</h3>";
+                } else {
+                    echo "<h3>Total de registros:  $registros_totales</h3>";
+                }
+
+            ?>
         </div>
     </div>
     <div class="container">
@@ -306,45 +299,18 @@ $registros_totales = $consulta_total->fetchColumn();
             </form>
             <tbody>
                 <?php
-                    foreach ($resultados as $posicion => $columna) {
+                    foreach ($resultados as $columna) {
                         echo "<tr>";
-                            echo "<td>" . $columna['Matricula_alumne'] . "</td>";
-                            echo "<td>" . $columna['DNI_alumne'] . "</td>";
-                            echo "<td>" . $columna['Nom_alumne'] . "</td>";
-                            echo "<td>" . $columna['Primer_Cognom_alumne'] . "</td>";
-                            echo "<td>" . $columna['Segon_Cognom_alumne'] . "</td>";
-                            echo "<td>" . $columna['Telefon_alumne'] . "</td>";
-                            echo "<td>" . $columna['Correu_alumne'] . "</td>";
-                            echo "<td>" . $columna['Nom_curs'] . "</td>";
-                            echo "<td>" . $columna['Sexe_alumne'] . "</td>";
-                            echo "<td>";
-                            echo "<a href='formularios/alumne/formeditarAlumne.php?ID=" . $columna['Matricula_alumne'] . "' class='button_e'>";
-                                echo "<div class='image-container'>";
-                                    echo "<img src='./img/pen-to-square-solid.png' alt='Imagen Default' class='image image-default'>";
-                                    echo "<img src='./img/pen-to-square-solid-blue.png' alt='Imagen Hover' class='image image-hover'>";
-                                echo "</div>";
-                            echo "</a>";
-                            echo "<a href='acciones/eliminar.php?ID=" . $columna['Matricula_alumne'] . "' class='button_b'>";
-                                echo "<div class='image-container'>";
-                                    echo "<img src='./img/dumpster-solid.png' alt='Imagen Default' class='image image-default'>";
-                                    echo "<img src='./img/dumpster-solid-red.png' alt='Imagen Hover' class='image image-hover'>";
-                                echo "</div>";
-                            echo "</a>";
-                            echo "</td>";
-                        echo "<tr>";
-                    }
-                    foreach ($resultados as $row) {
-                        echo "<tr>";
-                            echo "<td>{$row['Matricula_alumne']}</td>";
-                            echo "<td>{$row['DNI_alumne']}</td>";
-                            echo "<td>{$row['Nom_alumne']}</td>";
-                            echo "<td>{$row['Primer_Cognom_alumne']}</td>";
-                            echo "<td>{$row['Segon_Cognom_alumne']}</td>";
-                            echo "<td>{$row['Telefon_alumne']}</td>";
-                            echo "<td>{$row['Correu_alumne']}</td>";
-                            echo "<td>{$row['Nom_curs']}</td>";
-                            echo "<td>{$row['Sexe_alumne']}</td>";
-                            echo "<td>";
+                            echo "<td data-label='Matricula'>" . $columna['Matricula_alumne'] . "</td>";
+                            echo "<td data-label='DNI'>" . $columna['DNI_alumne'] . "</td>";
+                            echo "<td data-label='Nom'>" . $columna['Nom_alumne'] . "</td>";
+                            echo "<td data-label='Primer Cognom'>" . $columna['Primer_Cognom_alumne'] . "</td>";
+                            echo "<td data-label='Segon Cognom'>" . $columna['Segon_Cognom_alumne'] . "</td>";
+                            echo "<td data-label='Teléfon'>" . $columna['Telefon_alumne'] . "</td>";
+                            echo "<td data-label='Correu'>" . $columna['Correu_alumne'] . "</td>";
+                            echo "<td data-label='Curs'>" . $columna['Nom_curs'] . "</td>";
+                            echo "<td data-label='Sexe'>" . $columna['Sexe_alumne'] . "</td>";
+                            echo "<td data-label='Acciones'>";
                             echo "<a href='formularios/alumne/formeditarAlumne.php?ID=" . $columna['Matricula_alumne'] . "' class='button_e'>";
                                 echo "<div class='image-container'>";
                                     echo "<img src='./img/pen-to-square-solid.png' alt='Imagen Default' class='image image-default'>";
