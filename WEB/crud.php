@@ -283,6 +283,7 @@ $registros_totales = $consulta_total->fetchColumn();
             </form> -->
             <br><br>
             <h3>Total de registros: <?php echo $registros_totales;?></h3>
+            <h3>Total de registros: <?php echo $resultados_filtro;?></h3>
         </div>
     </div>
     <div class="container">
