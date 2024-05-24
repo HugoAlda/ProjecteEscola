@@ -2,41 +2,57 @@
 
 require_once 'conexion.php';
 
-if (isset($_GET['query']) && !empty($_GET['query'])) {
-    $query = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_STRING);
-    
-    try {
-        // Preparar la consulta SQL para buscar en la base de datos
-        $stmt = $conn->prepare("SELECT * FROM tbl_professors WHERE 
-                                DNI_professor LIKE :query OR 
-                                nombre LIKE :query OR 
-                                apellido LIKE :query");
-
-        // Agregar comodines para la búsqueda
-        $query = '%' . $query . '%';
-
-        // Bindear el parámetro
-        $stmt->bindParam(':query', $query, PDO::PARAM_STR);
-        
-        // Ejecutar la consulta
-        $stmt->execute();
-
-        // Obtener los resultados
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log('Error de base de datos: ' . $e->getMessage());
-        $results = [];
-    }
-} else {
-    $results = [];
-}
-
 try {
+    
     // Inicializa la variable $resultados para evitar errores de advertencia
     $resultados = [];
+    
+    // Variable para almacenar la consulta
+    $consulta = null;
 
     // Si se ha enviado el formulario de filtro de alumnos
-    if (isset($_POST['Matricula_asc'])) {
+    if (isset($_GET['query'])) {
+        $busqueda = $_GET['query'];
+        // Prepara la consulta SQL para la búsqueda
+        $consulta = $conn->prepare("
+            SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
+            FROM tbl_alumnes alu 
+            INNER JOIN tbl_curs c 
+            ON alu.FK_ID_curs = c.ID_curs 
+            WHERE alu.Matricula_alumne LIKE :busqueda 
+            OR alu.DNI_alumne LIKE :busqueda 
+            OR alu.Nom_alumne LIKE :busqueda 
+            OR alu.Primer_Cognom_alumne LIKE :busqueda 
+            OR alu.Segon_Cognom_alumne LIKE :busqueda 
+            OR alu.Telefon_alumne LIKE :busqueda 
+            OR alu.Correu_alumne LIKE :busqueda 
+            OR alu.Sexe_alumne LIKE :busqueda 
+            OR c.Nom_curs LIKE :busqueda
+            ORDER BY alu.Matricula_alumne ASC;
+        ");
+        $consulta->execute([':busqueda' => '%' . $busqueda . '%']);
+        $resultados = $consulta->fetchAll(); 
+
+        $contador_filtro = $conn->prepare("
+            SELECT COUNT(alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs) 
+            FROM tbl_alumnes alu 
+            INNER JOIN tbl_curs c 
+            ON alu.FK_ID_curs = c.ID_curs 
+            WHERE alu.Matricula_alumne LIKE :busqueda 
+            OR alu.DNI_alumne LIKE :busqueda 
+            OR alu.Nom_alumne LIKE :busqueda 
+            OR alu.Primer_Cognom_alumne LIKE :busqueda 
+            OR alu.Segon_Cognom_alumne LIKE :busqueda 
+            OR alu.Telefon_alumne LIKE :busqueda 
+            OR alu.Correu_alumne LIKE :busqueda 
+            OR alu.Sexe_alumne LIKE :busqueda 
+            OR c.Nom_curs LIKE :busqueda
+            ORDER BY alu.Matricula_alumne ASC;
+        ");
+        $contador_filtro->execute([':busqueda' => '%' . $busqueda . '%']);
+        $resultados_filtro = $contador_filtro->fetchAll();   
+
+    }else if (isset($_POST['Matricula_asc'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
         FROM tbl_alumnes alu 
@@ -188,6 +204,7 @@ try {
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Sexe_alumne ASC;");
         $resultados = $consulta->fetchAll();
+
     } else if (isset($_POST['Sexe_alumne_desc'])) {
 
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
@@ -196,6 +213,17 @@ try {
         ON alu.FK_ID_curs = c.ID_curs 
         ORDER BY alu.Sexe_alumne DESC;");
         $resultados = $consulta->fetchAll();
+
+    } else if (isset($_POST['vuelta_registros'])){
+
+        // Vuelta a la consulta default
+        $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
+        FROM tbl_alumnes alu 
+        INNER JOIN tbl_curs c 
+        ON alu.FK_ID_curs = c.ID_curs 
+        ORDER BY alu.Matricula_alumne ASC;");
+        $resultados = $consulta->fetchAll();
+
     } else {
         // Si no se ha enviado ningún formulario, mostrar la tabla sin ordenar
         $consulta = $conn->query("SELECT alu.Matricula_alumne, alu.DNI_alumne, alu.Nom_alumne, alu.Primer_Cognom_alumne, alu.Segon_Cognom_alumne, alu.Telefon_alumne, alu.Correu_alumne, alu.Sexe_alumne, c.Nom_curs 
@@ -210,12 +238,16 @@ try {
     echo "¡Algo falla!<br><br>";
     echo "Error: " . $e->getMessage();
 }
+
+// Consultar el total de registros
+$consulta_total = $conn->query("SELECT COUNT(*) FROM tbl_alumnes");
+$registros_totales = $consulta_total->fetchColumn();
+
 ?>
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="./css/style.css" type="text/css">
     <title>CRUD ALUMNES</title>
 </head>
@@ -229,9 +261,10 @@ try {
         <div class="create-button">
             <nav>
                 <div>
-                    <form class="d-flex" role="search" method="GET" action="search.php">
-                        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex" role="search" method="GET" action="">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        <button class="btn btn-outline-success" type="submit" id="registros" name="vuelta_registros">Registos</button>
                     </form>
                 </div>
             </nav>
@@ -245,6 +278,11 @@ try {
                 </a>
             </div>
             <a class="button_c" href="./crud_profes.php">Cambiar a professors</a>
+            <!-- <form action="" method="post">
+                
+            </form> -->
+            <br><br>
+            <h3>Total de registros: <?php echo $registros_totales;?></h3>
         </div>
     </div>
     <div class="container">
@@ -293,6 +331,33 @@ try {
                             echo "</a>";
                             echo "</td>";
                         echo "<tr>";
+                    }
+                    foreach ($resultados as $row) {
+                        echo "<tr>";
+                            echo "<td>{$row['Matricula_alumne']}</td>";
+                            echo "<td>{$row['DNI_alumne']}</td>";
+                            echo "<td>{$row['Nom_alumne']}</td>";
+                            echo "<td>{$row['Primer_Cognom_alumne']}</td>";
+                            echo "<td>{$row['Segon_Cognom_alumne']}</td>";
+                            echo "<td>{$row['Telefon_alumne']}</td>";
+                            echo "<td>{$row['Correu_alumne']}</td>";
+                            echo "<td>{$row['Nom_curs']}</td>";
+                            echo "<td>{$row['Sexe_alumne']}</td>";
+                            echo "<td>";
+                            echo "<a href='formularios/alumne/formeditarAlumne.php?ID=" . $columna['Matricula_alumne'] . "' class='button_e'>";
+                                echo "<div class='image-container'>";
+                                    echo "<img src='./img/pen-to-square-solid.png' alt='Imagen Default' class='image image-default'>";
+                                    echo "<img src='./img/pen-to-square-solid-blue.png' alt='Imagen Hover' class='image image-hover'>";
+                                echo "</div>";
+                            echo "</a>";
+                            echo "<a href='acciones/eliminar.php?ID=" . $columna['Matricula_alumne'] . "' class='button_b'>";
+                                echo "<div class='image-container'>";
+                                    echo "<img src='./img/dumpster-solid.png' alt='Imagen Default' class='image image-default'>";
+                                    echo "<img src='./img/dumpster-solid-red.png' alt='Imagen Hover' class='image image-hover'>";
+                                echo "</div>";
+                            echo "</a>";
+                            echo "</td>";
+                        echo "</tr>";
                     }
                 ?>
             </tbody>

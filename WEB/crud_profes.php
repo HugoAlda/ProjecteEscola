@@ -2,6 +2,8 @@
 
 require_once 'conexion.php';
 
+// require_once 'consulta_search.php';
+
 try {
     // Inicializa la variable $resultados para evitar errores de advertencia
     $resultados = [];
@@ -94,36 +96,41 @@ try {
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
 
-    <link rel="stylesheet" href="./css/style-profes.css" type="text/css">
     <title>CRUD PROFESSORS</title>
 </head>
 <header>
     <img src="./img/logoextendido.png" alt="">
 </header>
 <body class="CRUD">
-    <br>
+    <br><br><br><br>
     <div class="contenedor">
         <br>
-        <div class="separacambioprofe">
-            <h2>Taula CRUD tbl_professors</h2>
-            <!-- este es el boton que cambia de ver a alumnos a ver los profesores -->
-            <a class="button_c" href="./crud.php">Cambiar a alumnes</a>
-        </div>
         <div class="create-button">
-        <!-- aqui cierra el div para separar el titulo de cambiar a profe -->
             <nav>
-                <!-- barra de navegacion es donde está lot titulos de las columnas -->
-                <div class="container">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar">
-                        <button class="button_e" type="submit">Buscar</button>
-                        <a class="button_c" href="formularios/professor/formcrearprofe.php">Crear</a>
+                <div>
+                    <form class="d-flex" role="search" method="GET" action="">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        <button class="btn btn-outline-success" type="submit" id="registros" name="vuelta_registros">Registos</button>
                     </form>
                 </div>
             </nav>
         </div>
-    </div>
+        <div class="cambiar-añadir">
+            <div class='image-container' id="cruz">
+                <a href="./formularios/alumne/formcrearAlumne.php">
+                    <img src='./img/square-plus-solid.png' alt='Imagen Default' class='image image-default'>
+                    <img src='./img/square-plus-solid-green.png' alt='Imagen Default' class='image image-hover'>
+                </a>
+            </div>
+            <a class="button_c" href="./crud.php">Cambiar a alumnes</a>
+            <br><br>
+            <h3>Total de registros: <?php echo $registros_totales;?></h3>
+        </div>
+    </div>       
+    <div class="container">
     <div class="container">
         <table>
             <thead class="thead">
@@ -156,14 +163,23 @@ try {
                         echo "<td>" . $columna['Carrec_professor'] . "</td>";
                         echo "<td>" . $columna['Tutor_assignat'] . "</td>";
                         echo "<td>";
-                        echo "<a href='./formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'><img src='./img/pen-to-square-solid.png'></a>";
-
-                        echo "<a href='./acciones/eliminarProfe.php?DNI=".$columna['DNI_professor']."' class='button_b'><img src='./img/dumpster-solid.png'></a>";
-                        echo "</td>";
+                        echo "<a href='./formularios/professor/formeditarProfe.php?DNI=".$columna['DNI_professor']."' class='button_e'>";
+                                echo "<div class='image-container'>";
+                                    echo "<img src='./img/pen-to-square-solid.png' alt='Imagen Default' class='image image-default'>";
+                                    echo "<img src='./img/pen-to-square-solid-blue.png' alt='Imagen Hover' class='image image-hover'>";
+                                echo "</div>";
+                            echo "</a>";
+                            echo "<a href='./acciones/eliminarProfe.php?DNI=".$columna['DNI_professor']."' class='button_b'>";
+                                echo "<div class='image-container'>";
+                                    echo "<img src='./img/dumpster-solid.png' alt='Imagen Default' class='image image-default'>";
+                                    echo "<img src='./img/dumpster-solid-red.png' alt='Imagen Hover' class='image image-hover'>";
+                                echo "</div>";
+                            echo "</a>";
+                            echo "</td>";
                         echo "<tr>";
                     }
                 ?>
             </tbody>
-        </table>
+        </table>  
     </div>
 </body>

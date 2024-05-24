@@ -21,31 +21,35 @@
 <form action="./../../acciones/crearProfe.php" method="POST">
     <label for="DNI_Professor">DNI</label>
     <br>
-    <input type="text" id="DNI_Professor" name="DNI_Professor" maxlength="9" required>
+    <input onmouseleave="validaDNI()" type="text" id="DNI_Professor" name="DNI_Professor" maxlength="9" required>
+    <p class="errors" id="error_dni"></p>
     <br>
     <label for="Nom_Professor">Nom Professor</label>
     <br>
-    <input type="text" id="Nom_Professor" name="Nom_Professor" maxlength="30" required>
+    <input onmouseleave="validarNombre()" type="text" id="Nom_Professor" name="Nom_Professor" maxlength="30" required>
+    <p class="errors" id="error_nom"></p>
     <br>
     <label for="Primer_Cognom_Professor">Primer Cognom Professor</label>
     <br>
-    <input type="text" id="Primer_Cognom_Professor" name="Primer_Cognom_Professor" maxlength="60" required>
+    <input onmouseleave="validaApellido1()" type="text" id="Primer_Cognom_Professor" name="Primer_Cognom_Professor" maxlength="60" required>
+    <p class="errors" id="error_cognom1"></p>
     <br>
     <label for="Segon_Cognom_Professor">Segon Cognom Professor</label>
     <br>
-    <input type="text" id="Segon_Cognom_Professor" name="Segon_Cognom_Professor" maxlength="60" required>
+    <input onmouseleave="validaApellido2()" type="text" id="Segon_Cognom_Professor" name="Segon_Cognom_Professor" maxlength="60" required>
+    <p class="errors" id="error_cognom2"></p>
     <br>
     <label for="Telefon_Professor">Telèfon Professor</label>
     <br>
-    <input type="tel" id="Telefon_Professor" name="Telefon_Professor" maxlength="9" required>
+    <input  onmouseleave="validaTelf()" type="tel" id="Telefon_Professor" name="Telefon_Professor" maxlength="9" required>
     <br>
     <label for="Correu_Professor">Correu Professor</label>
     <br>
-    <input type="email" id="Correu_Professor" name="Correu_Professor" maxlength="50" required>
+    <input onmouseleave="validaEmail()" type="email" id="Correu_Professor" name="Correu_Professor" maxlength="50" required>
     <br>
     <label for="Sexe_Professor">Sexe Professor</label>
     <br>
-    <select id="Sexe_Professor" name="Sexe_Professor" class="selectform"  required>
+    <select onmouseleave="validaOpcionesSexo()" id="Sexe_Professor" name="Sexe_Professor" class="selectform"  required>
         <option value="Home">Home</option>
         <option value="Dona">Dona</option>
         <option value="No binari">No binari</option>
@@ -80,3 +84,4 @@
 </form>
 </body>
 </html>
+<script src="./../../scripts/script.js"></script>

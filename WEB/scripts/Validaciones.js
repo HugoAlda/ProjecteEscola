@@ -1,10 +1,14 @@
 function validaMatricula() {
     let valor1 = document.getElementById("Matricula_Alumne").value;
-    if(valor3 == null || valor3.length === 0) {}
+    if(valor1 == null || valor1.length === 0) {
+        document.getElementById("error_matricula").innerHTML = "El campo no puede estar vacío.";
+    } else if (isNaN(valor1)) {
+        document.getElementById("error_cognom1").innerHTML = "El campo tiene que ser un numero.";
+    } else {
+        document.getElementById("error_cognom1").innerHTML = "";
+    }
     
 }
-
-
 
 function validaNombre() {
     let valor1 = document.getElementById("Nom_Alumne" || "Nom_Professor").value;
@@ -18,8 +22,9 @@ function validaNombre() {
         document.getElementById("error_nom").innerHTML = "";
     }
 }
+
 function validaApellido1() {
-    let valor1 = document.getElementById("Primer_Cognom_Alumne").value;
+    let valor1 = document.getElementById("Primer_Cognom_Alumne" || "Primer_Cognom_Professor").value;
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
@@ -30,8 +35,14 @@ function validaApellido1() {
         document.getElementById("error_cognom1").innerHTML = "";
     }
 }
+
 function validaApellido2() {
-    let valor1 = document.getElementById("Segon_Cognom_Alumne").value;
+    // let valor1 = document.getElementById("Segon_Cognom_Alumne" || "Segon_Cognom_Professor").value;
+    let valorAlumne = document.getElementById("Segon_Cognom_Alumne").value;
+    let valorProfessor = document.getElementById("Segon_Cognom_Professor").value;
+
+    let valor1 = valorAlumne || valorProfessor;
+
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
@@ -42,31 +53,54 @@ function validaApellido2() {
         document.getElementById("error_cognom2").innerHTML = "";
     }
 }
-function validaTelf() {
-    let valor6 = document.getElementById("telefono").value;
-    if (valor6 == null || valor6.length == 0) {
-        document.getElementById("error_telf").innerHTML = "El numero de telefono no puede estar vacio";
-    } else if (!(/^\d{9}$/.test(valor6)) &&
-        !(/^\d{3}-\d{3}-\d{3}$/.test(valor6)) &&
-        !(/^\d{3}\s\d{6}$/.test(valor6)) &&
-        !(/^\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(valor6)) &&
-        !(/^\(\d{3}\)\s\d{6}$/.test(valor6)) &&
-        !(/^\+\d{2,3}\s\d{9}$/.test(valor6))) {
-        document.getElementById("error_telf").innerHTML = "El número de teléfono debe ser válido";
+
+// function validaTelf() {
+//     let valor6 = document.getElementById("Telefon_Alumne" || "Telefon_Professor").value;
+//     if (valor6 == null || valor6.length == 0) {
+//         document.getElementById("error_telf").innerHTML = "El numero de telefono no puede estar vacio";
+//     } else if (!(/^\d{9}$/.test(valor6)) &&
+//         !(/^\d{3}-\d{3}-\d{3}$/.test(valor6)) &&
+//         !(/^\d{3}\s\d{6}$/.test(valor6)) &&
+//         !(/^\d{3}\s\d{2}\s\d{2}\s\d{2}$/.test(valor6)) &&
+//         !(/^\(\d{3}\)\s\d{6}$/.test(valor6)) &&
+//         !(/^\+\d{2,3}\s\d{9}$/.test(valor6))) {
+//         document.getElementById("error_telf").innerHTML = "El número de teléfono debe ser válido";
+//     } else {
+//         document.getElementById("error_telf").innerHTML = "";
+//     }
+// }
+
+function validarTelf() {
+    let valorAlumne = document.getElementById("Telefon_Alumne").value;
+    let valorProfessor = document.getElementById("Telefon_Professor");
+
+    let valor = valorAlumne || valorProfessor;
+
+    if (valor == null || valor.length == 0) {
+        document.getElementById("error_telf").innerHTML = "El campo no puede estar vacío.";
+        return false;
+    } else if (!(/^\d{9}$/.test(valor))) {
+        document.getElementById("error_telf").innerHTML = "El formato de teléfono no es válido. Debe tener 9 dígitos.";
+        return false;
     } else {
         document.getElementById("error_telf").innerHTML = "";
+        return true;
     }
 }
 
 
+
 function validaEmail() {
-    let valor3 = document.getElementById("Correu_Alumne").value;
+    let valor3 = document.getElementById("Correu_Alumne" ||"Correu_Professor").value;
     if(valor3 == null || valor3.length === 0) {
         document.getElementById("error_email").innerHTML = "Introduce tu dirección de correo electrónico, no la puedes dejar vacía";
+        return false;
     }else if (!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor3))) {
         document.getElementById("error_email").innerHTML = "Direccion de correo invalida, prueba con otra correcta";
+        return false;
     }  else {
         document.getElementById("error_email").innerHTML = "";
+        return true;
     }
 }
 
@@ -74,15 +108,17 @@ function validaOpcionesCurso() {
     let indice = document.getElementById("FK_ID_curs").selectedIndex;
     if (indice == null || indice == 0) {
         document.getElementById("error_opcion_curso").innerHTML = "No puedes dejar el campo vacio";
+        return false;
     } else {
         document.getElementById("error_opcion_curso").innerHTML = "";
     }
 }
 
 function validaOpcionesSexo() {
-    let indice = document.getElementById("Sexe_Alumne").selectedIndex;
+    let indice = document.getElementById("Sexe_Alumne" || "").selectedIndex;
     if (indice == null || indice == 0) {
         document.getElementById("error_opcion_sexo").innerHTML = "No puedes dejar el campo vacio";
+        return false;
     } else {
         document.getElementById("error_opcion_sexo").innerHTML = "";
     }
@@ -128,7 +164,7 @@ function validaOpcionesSexo() {
 
 
 function validaDNI() {
-    var valor7 = document.getElementById("DNI_Alumne").value;
+    var valor7 = document.getElementById("DNI_Alumne" || "DNI_Professor").value;
     var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
     if (valor7.length == 0 || valor7 == null) {

@@ -22,15 +22,15 @@ header{
 
 .container {
     width: 100vw;
-    max-width: 85vw;
-    max-height: 58vh;
+    max-width: 90vw;
+    max-height: 52vh;
     background-color: #fff;
     overflow-y: auto;
 }
 
 .contenedor {
     width: 100vw;
-    max-width: 88vw;
+    max-width: 92.5vw;
     margin: 0 auto;
     padding: 20px;
 }
@@ -75,6 +75,15 @@ h2 {
     border-radius: 5px;
     width: 300px;
     margin: 0 auto;
+}
+
+#registros {
+    margin-left: 5px;
+}
+
+h3 {
+    color: white;
+    font-size: 18px;
 }
 
 .contenedor-btn-login h2 {
@@ -187,15 +196,15 @@ th {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    color: green;
-    border: 2px solid green;
+    color: #a47580;
+    border: 2px solid #a47580;
     border-radius: 5px;
     margin-left: 5px;
     z-index: 9999; /* Asegura que la imagen esté encima de otros elementos */
 }
 
 .button_c:hover {
-    background-color: green;
+    background-color: #a47580;
     color: white;
     cursor: pointer;
 }
