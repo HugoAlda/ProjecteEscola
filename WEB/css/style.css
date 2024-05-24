@@ -22,14 +22,6 @@ header{
 
 .container {
     width: 100vw;
-    max-width: 90vw;
-    max-height: 50vh;
-    background-color: #fff;
-    overflow-y: auto;
-}
-
-.container-profes {
-    width: 100vw;
     max-width: 100vw;
     max-height: 50vh;
     background-color: #fff;
@@ -38,7 +30,7 @@ header{
 
 .contenedor {
     width: 100vw;
-    max-width: 92.5vw;
+    max-width: 90vw;
     margin: 0 auto;
     padding: 20px;
 }
@@ -70,7 +62,10 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
 }
-
+.titulo {
+    text-align: center;
+    
+}
 .contenedor-btn-login {
     text-align: center;
     margin-top: 50px;
@@ -94,6 +89,10 @@ h3 {
     font-size: 18px;
 }
 
+.formuuu{
+    text-align: center;
+    justify-content: center;
+    }
 .contenedor-btn-login h2 {
     margin: 0 0 10px 0;
     font-size: 14px;
@@ -314,6 +313,21 @@ form input[type="submit"]:hover {
 
 .image-container:hover .image-default {
     opacity: 0;
+}
+.errors{
+    color: red;
+}
+.button_form{
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #a47580;
+    border: 2px solid #674950;
+    border-radius: 5px;
+}
+
+.button_form:hover{
+    background-color: #674950;
 }
 
 /* Estilos específicos para pantallas pequeñas */

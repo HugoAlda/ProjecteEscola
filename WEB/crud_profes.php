@@ -49,58 +49,144 @@ try {
         $contador_filtro->execute([':busqueda' => '%' . $busqueda . '%']);
         $total_registros_filtrados = $contador_filtro->fetchColumn();
 
-    }else if (isset($_POST['filtre_DNI_professor_asc'])) {
+    } else if (isset($_POST['DNI_professor_asc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY DNI_professor ASC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['filtre_DNI_professor_desc'])) {
+    } else if (isset($_POST['DNI_professor_desc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY DNI_professor DESC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['filtre_matricula'])) {
+    } else if (isset($_POST['nom_professor_asc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY Nom_professor ASC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['filtre_dni_alumne'])) {
+    } else if (isset($_POST['nom_professor_desc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
-        $resultados = $consulta->fetchAll();
-    
-    } else if (isset($_POST['filtre_primer_cognom_alumne'])) {
-
-        $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY Nom_professor DESC;");
         $resultados = $consulta->fetchAll();
     
-    } else if (isset($_POST['filtre_segon_cognom_alumne'])) {
+    } else if (isset($_POST['primer_cognom_asc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY Primer_Cognom_professor ASC;");
         $resultados = $consulta->fetchAll();
     
-    } else if (isset($_POST['filtre_telefon_alumne'])) {
+    } else if (isset($_POST['primer_cognom_desc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY Primer_Cognom_professor DESC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['segon_cognom_asc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Segon_Cognom_professor ASC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['filtre_correu_alumne'])) {
+    } else if (isset($_POST['segon_cognom_desc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY Segon_Cognom_professor DESC;");
         $resultados = $consulta->fetchAll();
 
-    } else if (isset($_POST['filtre_curs_alumne'])) {
+    } else if (isset($_POST['telefon_asc'])) {
 
         $consulta = $conn->query("SELECT *
-        FROM tbl_professors;");
+        FROM tbl_professors
+        ORDER BY Telefon_professor ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['telefon_desc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Telefon_professor DESC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['correu_asc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Correu_professor ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['correu_desc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Correu_professor DESC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['sexe_asc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Sexe_professor ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['sexe_desc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Sexe_professor DESC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['cursos_asc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Cursos_assignats ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['cursos_desc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Cursos_assignats DESC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['carrec_asc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Carrec_professor ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['carrec_desc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Carrec_professor DESC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['tutor_asc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Tutor_assignat ASC;");
+        $resultados = $consulta->fetchAll();
+    
+    } else if (isset($_POST['tutor_desc'])) {
+
+        $consulta = $conn->query("SELECT *
+        FROM tbl_professors
+        ORDER BY Tutor_assignat DESC;");
         $resultados = $consulta->fetchAll();
     
     } else {
@@ -140,14 +226,14 @@ $registros_totales = $consulta_total->fetchColumn();
                     <form class="d-flex" role="search" method="GET" action="">
                         <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Buscar">
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
-                        <a class="button_c" href="./crud_profes.php">Registros</a>
+                        <a class="button_c" href="./crud_profes.php">Eliminar</a>
                     </form>
                 </div>
             </nav>
         </div>
         <div class="cambiar-añadir">
             <div class='image-container' id="cruz">
-                <a href="./formularios/alumne/formcrearAlumne.php">
+                <a href="./formularios/professor/formcrearProfe.php">
                     <img src='./img/square-plus-solid.png' alt='Imagen Default' class='image image-default'>
                     <img src='./img/square-plus-solid-green.png' alt='Imagen Default' class='image image-hover'>
                 </a>
@@ -165,22 +251,22 @@ $registros_totales = $consulta_total->fetchColumn();
             ?>
         </div>
     </div>       
-    <div class="container-profes">
+    <div class="container">
     <table>
     <form action="">
         <thead class="thead">
             <tr>
                 <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">DNI<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
                 <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Nom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Primer Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Segon Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">1r Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">2n Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
                 <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Teléfon<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
                 <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Correu<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
                 <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Sexe<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Cursos Asignats<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Cursos<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
                 <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Carrec<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Tutor asignat<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
-                <th>Acciones<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
+                <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Tutor<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
+                <th>Acciones</th>
             </tr>
         </thead>
     </form>

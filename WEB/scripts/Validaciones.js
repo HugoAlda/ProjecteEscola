@@ -1,3 +1,4 @@
+// VALIDACIONES DE ALUMNOS
 function validaMatricula() {
     let valor1 = document.getElementById("Matricula_Alumne").value;
     if(valor1 == null || valor1.length === 0) {
@@ -11,7 +12,7 @@ function validaMatricula() {
 }
 
 function validaNombre() {
-    let valor1 = document.getElementById("Nom_Alumne" || "Nom_Professor").value;
+    let valor1 = document.getElementById("Nom_Alumne").value;
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
@@ -24,7 +25,7 @@ function validaNombre() {
 }
 
 function validaApellido1() {
-    let valor1 = document.getElementById("Primer_Cognom_Alumne" || "Primer_Cognom_Professor").value;
+    let valor1 = document.getElementById("Primer_Cognom_Alumne").value;
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo puedes dejar vacío";
     } else if (/^\s+$/.test(valor1)) {
@@ -37,11 +38,7 @@ function validaApellido1() {
 }
 
 function validaApellido2() {
-    // let valor1 = document.getElementById("Segon_Cognom_Alumne" || "Segon_Cognom_Professor").value;
-    let valorAlumne = document.getElementById("Segon_Cognom_Alumne").value;
-    let valorProfessor = document.getElementById("Segon_Cognom_Professor").value;
-
-    let valor1 = valorAlumne || valorProfessor;
+    let valor1 = document.getElementById("Segon_Cognom_Alumne").value;
 
     if (valor1 == null || valor1.length == 0 ) {
         document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo puedes dejar vacío";
@@ -71,10 +68,7 @@ function validaApellido2() {
 // }
 
 function validarTelf() {
-    let valorAlumne = document.getElementById("Telefon_Alumne").value;
-    let valorProfessor = document.getElementById("Telefon_Professor");
-
-    let valor = valorAlumne || valorProfessor;
+    let valor = document.getElementById("Telefon_Alumne").value;
 
     if (valor == null || valor.length == 0) {
         document.getElementById("error_telf").innerHTML = "El campo no puede estar vacío.";
@@ -89,9 +83,8 @@ function validarTelf() {
 }
 
 
-
 function validaEmail() {
-    let valor3 = document.getElementById("Correu_Alumne" ||"Correu_Professor").value;
+    let valor3 = document.getElementById("Correu_Alumne").value;
     if(valor3 == null || valor3.length === 0) {
         document.getElementById("error_email").innerHTML = "Introduce tu dirección de correo electrónico, no la puedes dejar vacía";
         return false;
@@ -115,7 +108,7 @@ function validaOpcionesCurso() {
 }
 
 function validaOpcionesSexo() {
-    let indice = document.getElementById("Sexe_Alumne" || "").selectedIndex;
+    let indice = document.getElementById("Sexe_Alumne").selectedIndex;
     if (indice == null || indice == 0) {
         document.getElementById("error_opcion_sexo").innerHTML = "No puedes dejar el campo vacio";
         return false;
@@ -124,90 +117,119 @@ function validaOpcionesSexo() {
     }
 }
 
-
-// function validarFechaNacimiento() {
-//     let ano = parseInt(document.getElementById("ano").value);
-//     let mes = parseInt(document.getElementById("mes").value) - 1; // Resta 1 porque los meses van de 0 a 11
-//     let dia = parseInt(document.getElementById("dia").value);
-
-//     let valor = new Date(ano, mes, dia);
-
-//     if (isNaN(valor)) {
-//         document.getElementById("error_fecha_nacimiento").innerText = "La fecha de nacimiento no es válida.";
-//         return false;
-//     }
-//     document.getElementById("error_fecha_nacimiento").innerText = "";
-//     return true;
-// }
-
-// function validarFechaNacimiento() {
-//     var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
-//     var fechaNacimiento = new Date(fecha_nacimiento);
-//     var hoy = new Date();
-//     var edadCalculada = hoy.getFullYear() - fechaNacimiento.getFullYear();
-
-//     if (fecha_nacimiento == null || fecha_nacimiento.length === 0) { // Verificar si fecha_nacimiento está vacío
-//         document.getElementById("error_fecha_nacimiento").innerHTML = "Por favor, ingresa tu fecha de nacimiento.";
-//         return; 
-//     }
-
-//     if (hoy.getMonth() < fechaNacimiento.getMonth() || (hoy.getMonth() === fechaNacimiento.getMonth() && hoy.getDate() < fechaNacimiento.getDate())) { 
-//         edadCalculada--; 
-//     }
-
-//     if (edadCalculada < 0) {
-//         document.getElementById("error_fecha_nacimiento").innerHTML = "La fecha de nacimiento no puede ser en el futuro.";
-//     } else {
-//         document.getElementById("error_fecha_nacimiento").innerHTML = "";
-//     }
-// }
-
-
 function validaDNI() {
-    var valor7 = document.getElementById("DNI_Alumne" || "DNI_Professor").value;
+    var valor = document.getElementById("DNI_Alumne").value;
     var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
-    if (valor7.length == 0 || valor7 == null) {
+    if (valor.length == 0 || valor == null) {
         document.getElementById("error_dni").innerHTML = "No puedes dejar el campo vacío";
-    } else if (!(/^\d{8}[A-Z]$/.test(valor7))) {
+    } else if (!(/^\d{8}[A-Z]$/.test(valor))) {
         document.getElementById("error_dni").innerHTML = "Escribe bien el formato del DNI, 8 números, 1 letra mayuscula";
     } else {
-        if (valor7.charAt(8) != letras[(valor7.substring(0, 8)) % 23]) {
+        if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
             document.getElementById("error_dni").innerHTML = "El DNI introducido es incorrecto";
         } else {
             document.getElementById("error_dni").innerHTML = "";
         }
     }
 }
-// function validaradiobutton() {
-//     var opciones = document.getElementsByName("sexo");
-//     var seleccionado = false;
-//     for (var i = 0; i < opciones.length; i++) {
-//         if (opciones[i].checked) {
-//             seleccionado = true;
-//             break;
-//         }
-//     }
-//     if (!seleccionado) {
-//         document.getElementById("error_sexo").innerHTML = "Selecciona uno, ni que sea.";
-//     } else {
-//         document.getElementById("error_sexo").innerHTML = "";
-//     }
-// }
+
+//==========================================================================================================================================================================
+// VALIDACIONES PROFESORES
+
+function validaNombreProfe() {
+    let valor1 = document.getElementById("Nom_Professor").value;
+    if (valor1 == null || valor1.length == 0 ) {
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo puedes dejar vacío";
+    } else if (/^\s+$/.test(valor1)) {
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, no lo hagas con espacios";
+    } else if (!isNaN(valor1)) {
+        document.getElementById("error_nom").innerHTML = "Introduce tu nombre, el campo no puede ser un numero.";
+    } else {
+        document.getElementById("error_nom").innerHTML = "";
+    }
+}
+
+function validaApellido1Profe() {
+    let valor1 = document.getElementById("Primer_Cognom_Professor").value;
+    if (valor1 == null || valor1.length == 0 ) {
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo puedes dejar vacío";
+    } else if (/^\s+$/.test(valor1)) {
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, no lo hagas con espacios";
+    } else if (!isNaN(valor1)) {
+        document.getElementById("error_cognom1").innerHTML = "Introduce tu primer apellido, el campo no puede ser un numero.";
+    } else {
+        document.getElementById("error_cognom1").innerHTML = "";
+    }
+}
+
+function validaApellido2Profe() {
+    let valor1 = document.getElementById("Segon_Cognom_Professor").value;
+
+    if (valor1 == null || valor1.length == 0 ) {
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo puedes dejar vacío";
+    } else if (/^\s+$/.test(valor1)) {
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, no lo hagas con espacios";
+    } else if (!isNaN(valor1)) {
+        document.getElementById("error_cognom2").innerHTML = "Introduce tu segundo apellido, el campo no puede ser un numero.";
+    } else {
+        document.getElementById("error_cognom2").innerHTML = "";
+    }
+}
+
+function validarTelfProfe() {
+    let valor = document.getElementById("Telefon_Professor");
+
+    if (valor == null || valor.length == 0) {
+        document.getElementById("error_telf").innerHTML = "El campo no puede estar vacío.";
+        return false;
+    } else if (!(/^\d{9}$/.test(valor))) {
+        document.getElementById("error_telf").innerHTML = "El formato de teléfono no es válido. Debe tener 9 dígitos.";
+        return false;
+    } else {
+        document.getElementById("error_telf").innerHTML = "";
+        return true;
+    }
+}
 
 
+function validaEmailProfe() {
+    let valor3 = document.getElementById("Correu_Professor").value;
+    if(valor3 == null || valor3.length === 0) {
+        document.getElementById("error_email").innerHTML = "Introduce tu dirección de correo electrónico, no la puedes dejar vacía";
+        return false;
+    }else if (!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor3))) {
+        document.getElementById("error_email").innerHTML = "Direccion de correo invalida, prueba con otra correcta";
+        return false;
+    }  else {
+        document.getElementById("error_email").innerHTML = "";
+        return true;
+    }
+}
 
+function validaOpcionesSexoProfe() {
+    let indice = document.getElementById("Sexe_Professor").selectedIndex;
+    if (indice == null || indice == 0) {
+        document.getElementById("error_opcion_sexo").innerHTML = "No puedes dejar el campo vacio";
+        return false;
+    } else {
+        document.getElementById("error_opcion_sexo").innerHTML = "";
+    }
+}
 
-// function validacheckbox(){
-//     var interes1 = document.getElementById("interes1");
-//     var interes2 = document.getElementById("interes2");
-//     var interes3 = document.getElementById("interes3");
-    
-//     if(!interes1.checked && !interes2.checked && !interes3.checked) {
-//         document.getElementById("error_intereses").innerHTML = "Selecciona al menos una opción";
-//     } else {
-//         document.getElementById("error_intereses").innerHTML = "";
-//     }
-// }
+function validaDNIProfe() {
+    var valor = document.getElementById("DNI_Professor").value;
+    var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
-
+    if (valor.length == 0 || valor == null) {
+        document.getElementById("error_dni").innerHTML = "No puedes dejar el campo vacío";
+    } else if (!(/^\d{8}[A-Z]$/.test(valor))) {
+        document.getElementById("error_dni").innerHTML = "Escribe bien el formato del DNI, 8 números, 1 letra mayuscula";
+    } else {
+        if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
+            document.getElementById("error_dni").innerHTML = "El DNI introducido es incorrecto";
+        } else {
+            document.getElementById("error_dni").innerHTML = "";
+        }
+    }
+}

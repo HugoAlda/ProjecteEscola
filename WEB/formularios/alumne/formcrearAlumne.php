@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Registro</title>
-    <link rel="stylesheet" href="./../../css/csseditar_crear.css">
+    
     <link rel="stylesheet" href="./../../css/style.css">
     <script src="./../../scripts/Validaciones.js"></script>
 </head>
-<body>
+<body class="CRUD">
     <header>
         <div class="logo">
             <!-- <img src="./../../img/logoextendido.png" alt="LOGO"> -->
@@ -83,4 +83,3 @@
 </form>
 </body>
 </html>
-<script src="./../../scripts/script.js"></script>

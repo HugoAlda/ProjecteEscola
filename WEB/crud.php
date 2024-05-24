@@ -253,7 +253,7 @@ $registros_totales = $consulta_total->fetchColumn();
                     <form class="d-flex" role="search" method="GET" action="">
                         <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Buscar">
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
-                        <a class="button_c" href="./crud.php">Registros</a>
+                        <a class="button_c" href="./crud.php">Eliminar</a>
                     </form>
                 </div>
             </nav>
@@ -287,8 +287,8 @@ $registros_totales = $consulta_total->fetchColumn();
                         <th><input type="submit" value="⬆" id="flecha_izquierda" name="Matricula_asc">Matricula<input type="submit" value="⬇" id="flecha_derecha" name="Matricula_desc"></th>
                         <th><input type="submit" value="⬆" id="flecha_izquierda" name="DNI_asc">DNI<input type="submit" value="⬇" id="flecha_derecha" name="DNI_desc"></th>
                         <th><input type="submit" value="⬆" id="flecha_izquierda" name="Nom_alumnes_asc">Nom<input type="submit" value="⬇" id="flecha_derecha" name="Nom_alumnes_desc"></th>
-                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Primer_cognom_alumne_asc">Primer Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Primer_cognom_alumne_desc"></th>
-                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Segon_cognom_alumne_asc">Segon Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Segon_cognom_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Primer_cognom_alumne_asc">1r Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Primer_cognom_alumne_desc"></th>
+                        <th><input type="submit" value="⬆" id="flecha_izquierda" name="Segon_cognom_alumne_asc">2n Cognom<input type="submit" value="⬇" id="flecha_derecha" name="Segon_cognom_alumne_desc"></th>
                         <th><input type="submit" value="⬆" id="flecha_izquierda" name="Telefon_alumne_asc">Teléfon<input type="submit" value="⬇" id="flecha_derecha" name="Telefon_alumne_desc"></th>
                         <th><input type="submit" value="⬆" id="flecha_izquierda" name="Correu_alumne_asc">Correu<input type="submit" value="⬇" id="flecha_derecha" name="Correu_alumne_desc"></th>
                         <th><input type="submit" value="⬆" id="flecha_izquierda" name="Curs_alumne_asc">Curs<input type="submit" value="⬇" id="flecha_derecha" name="Curs_alumne_desc"></th>

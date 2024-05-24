@@ -1,18 +1,6 @@
-*{
-    background-color: rgb(35, 33, 40);
-    color:#f2f2f2;
-}
 
 
-input[type="text"]{
-    width: 100%;
- 
-}
 
-.titulo {
-    text-align: center;
-    
-}
 
 .button_form{
     display: inline-block;
@@ -26,12 +14,6 @@ input[type="text"]{
 .button_form:hover{
     background-color: #674950;
 }
-.formuuu{
-text-align: center;
-justify-content: center;
-}
 
 
-.errors{
-    color: red;
-}
+

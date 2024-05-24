@@ -1,5 +1,3 @@
-
-
 <?php
 if (!isset($_GET['DNI'])){
     header('Location: ./../../crud_profes.php');
@@ -23,11 +21,11 @@ if (!isset($_GET['DNI'])){
 ?>
 <head>
     <meta charset="UTF-8">    
-    <link rel="stylesheet" href="./../../css/csseditar_crear.css">
     <link rel="stylesheet" href="./../../css/style.css">
+    <script src="./../../scripts/Validaciones.js"></script>
     <title>Formulari Editar Professor</title>
 </head>
-<body>
+<body class="CRUD">
     <br>
     <div class="logo">
         <img src="./../../img/logoextendido.png" alt="LOGO">

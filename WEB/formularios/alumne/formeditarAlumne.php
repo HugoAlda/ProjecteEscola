@@ -21,11 +21,11 @@
 ?>
 <head>
     <meta charset="UTF-8">    
-    <link rel="stylesheet" href="./../../css/csseditar_crear.css">
     <link rel="stylesheet" href="./../../css/style.css">
+    <script src="./../../scripts/Validaciones.js"></script>
     <title>Formulari Editar Alumne</title>
 </head>
-<body>
+<body class="CRUD">
     <br>
     <div class="logo">
         <img src="./../../img/logoextendido.png" alt="LOGO">
@@ -83,5 +83,4 @@
         <input type="submit" value="Guardar Cambios" class="button_form">
     </form><br><br>
 </body>
-<script src="./../../scripts/script.js"></script>
 
